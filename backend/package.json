@@ -1,0 +1,10 @@
+{
+    "name": "ggrt",
+    "version": "0.0.1",
+    "private": true,
+    "dependencies": {
+        "express": "4.x",
+        "apn": "1.6.x",
+        "q": "1.x"
+    }
+}

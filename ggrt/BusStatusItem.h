@@ -8,8 +8,16 @@
 
 #import <Cocoa/Cocoa.h>
 
-@interface BusStatusItem : NSMenuItem
+@class BusStatusView;
 
-@property (nonatomic, weak) IBOutlet NSView *separator;
+@interface BusStatusItem : NSMenuItem {
+	BusStatusView *_view;
+}
+
+@property (nonatomic, readonly) NSString *routeId;
+@property (nonatomic, readonly) NSString *stopId;
+@property (nonatomic, strong) NSDictionary *busData;
+
+- (instancetype)initWithDictionary:(NSDictionary *)dict;
 
 @end

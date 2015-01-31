@@ -1,5 +1,5 @@
 //
-//  BusCellView.h
+//  BusStatusView.h
 //  ggrt
 //
 //  Created by Jerry Yu on 2015-01-31.
@@ -8,10 +8,10 @@
 
 #import <Cocoa/Cocoa.h>
 
-@interface BusCellView : NSView
+@interface BusStatusView : NSView
 
-@property (weak) IBOutlet NSTextField *busNumberLabel;
 @property (weak) IBOutlet NSTextField *routeLabel;
+@property (weak) IBOutlet NSTextField *descriptionLabel;
 @property (weak) IBOutlet NSTextField *timeRemainingLabel;
 
 @property (weak) IBOutlet NSView *separatorView;
