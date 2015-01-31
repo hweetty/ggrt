@@ -21,4 +21,4 @@ DerivedData
 
 node_modules
 
-Pods/*
+mac/Pods/*
