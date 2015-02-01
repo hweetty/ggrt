@@ -11,12 +11,13 @@
 
 @implementation ServerHelper
 
-#ifdef DEBUG
-static NSString *const kBaseURLPath = @"http://localhost:1729/v1/";
-#else
-static NSString *const kBaseURLPath = @"http://   /v1/";
-#endif
-
++ (PMKPromise *)getLatestVersionNumber:(NSString *)currentVersion {
+	NSString *path = [kBaseURLPath stringByAppendingFormat:@"latestVersion?currentVersion=%@", currentVersion];
+	NSLog(@"hitting url: %@", path);
+	NSURLRequest *request = [[NSURLRequest alloc] initWithURL:[NSURL URLWithString:path]];
+	
+	return [NSURLConnection promise:request];
+}
 
 + (PMKPromise *)getInfoForRoute:(NSString *)routeId stop:(NSString *)stopId {
 	NSString *path = [kBaseURLPath stringByAppendingFormat:@"GetStopInfo?routeId=%@&stopId=%@", routeId, stopId];

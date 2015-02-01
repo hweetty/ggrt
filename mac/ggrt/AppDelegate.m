@@ -9,11 +9,12 @@
 #import "AppDelegate.h"
 #import "StatusMenuController.h"
 #import "PollPushManager.h"
+#import "ServerHelper.h"
+#import <PromiseKit/PromiseKit.h>
 
 @interface AppDelegate () {
-	StatusMenuController *_controller;
+	StatusMenuController *_controller; // Hold on to it
 }
-
 @end
 
 @implementation AppDelegate
@@ -26,6 +27,15 @@
 	_controller = [[StatusMenuController alloc] initWithMenu:self.statusMenu item:self.statusItem];
 	
 	[PollPushManager start];
+	
+	[ServerHelper getLatestVersionNumber:kGGRTAppVersionNumber]
+	.then(^(NSDictionary *dict) {
+		NSLog(@"dict    : %@", dict);
+		if ([dict isKindOfClass:[NSDictionary class]] && ![dict[@"latestVersion"] isEqualToString:kGGRTAppVersionNumber])
+		{
+			NSLog(@"new version %@ available", dict[@"latestVersion"]);
+		}
+	});
 }
 
 - (void)menuWillOpen:(NSMenu *)menu {

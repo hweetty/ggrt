@@ -12,6 +12,8 @@
 
 @interface ServerHelper : NSObject
 
++ (PMKPromise *)getLatestVersionNumber:(NSString *)currentVersion;
+
 + (PMKPromise *)getInfoForRoute:(NSString *)routeId stop:(NSString *)stopId;
 
 @end

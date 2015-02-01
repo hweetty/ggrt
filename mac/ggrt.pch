@@ -9,6 +9,8 @@
 #ifndef ggrt_ggrt_pch
 #define ggrt_ggrt_pch
 
+#define kGGRTAppVersionNumber @"0.5"
+
 // NOTIFICATIONS ==========================================
 #define kAddNewBusNotification @"kAddNewBusNotification"
 #define kQuitAppNotification @"kQuitAppNotification"
@@ -24,5 +26,12 @@
 
 
 #define DEBUG
+
+#ifdef DEBUG
+#define kBaseURLPath @"http://localhost:1729/v1/"
+#else
+#define kBaseURLPath @"http://ggrt.ca:1729/v1/"
+#endif
+
 
 #endif

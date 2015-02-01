@@ -44,7 +44,12 @@ function _getStopInfo (routeId, stopId, res) {
 	})
 }
 
-
+app.get ("/v1/latestVersion", function (req, res) {
+    res.send ({
+    	status: 200,
+    	latestVersion: "0.6"
+    })
+});
 
 var httpGet = function (url) {
 	console.log(url);
