@@ -11,7 +11,7 @@
 
 @class MyComboBox;
 
-@interface AddMenuView : SuperStatusView<NSTextFieldDelegate>
+@interface AddMenuView : SuperStatusView<NSComboBoxDelegate>
 
 @property (weak) IBOutlet MyComboBox *routeDropdown;
 @property (weak) IBOutlet MyComboBox *stopDropBox;

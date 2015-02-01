@@ -9,18 +9,74 @@
 #import "ServerHelper.h"
 #import <PromiseKit/PromiseKit.h>
 
+#define kAllRoutesKey @"kAllRoutesKey"
+
 @implementation ServerHelper
 
-+ (PMKPromise *)getLatestVersionNumber:(NSString *)currentVersion {
-	NSString *path = [kBaseURLPath stringByAppendingFormat:@"latestVersion?currentVersion=%@", currentVersion];
-	NSLog(@"hitting url: %@", path);
+static NSCache *_cache = nil;
+
++ (NSCache *)cache {
+	if (!_cache) {
+		_cache = [[NSCache alloc] init];
+		[self prepopulateCache];
+	}
+	
+	return _cache;
+}
+
++ (PMKPromise *)prepopulateCache {
+	return nil;
+}
+
+
+#pragma mark - GRT Info
+
++ (PMKPromise *)getInfoForRoute:(NSString *)routeId stop:(NSString *)stopId {
+	NSString *path = [kBaseURLPath stringByAppendingFormat:@"GetStopInfo?routeId=%@&stopId=%@", routeId, stopId];
 	NSURLRequest *request = [[NSURLRequest alloc] initWithURL:[NSURL URLWithString:path]];
 	
 	return [NSURLConnection promise:request];
 }
 
-+ (PMKPromise *)getInfoForRoute:(NSString *)routeId stop:(NSString *)stopId {
-	NSString *path = [kBaseURLPath stringByAppendingFormat:@"GetStopInfo?routeId=%@&stopId=%@", routeId, stopId];
++ (PMKPromise *)getAllRoutes {
+	NSCache *cache = [self cache];
+	NSArray *routes = [cache objectForKey:kAllRoutesKey];
+	
+	if (routes && [routes count] > 0) {
+		return [PMKPromise promiseWithValue:routes];
+	}
+	
+	NSString *path = [kBaseURLPath stringByAppendingFormat:@"getAllRoutes"];
+	NSLog(@"hitting url: %@", path);
+	NSURLRequest *request = [[NSURLRequest alloc] initWithURL:[NSURL URLWithString:path]];
+	
+	return [NSURLConnection promise:request]
+	.then(^NSArray*(NSDictionary *dict) {
+		if ([dict isKindOfClass:[NSDictionary class]] && [dict[@"status"] intValue] == 200) {
+			NSArray *arr = [dict objectForKey:@"routes"];
+			if ([arr isKindOfClass:[NSArray class]] && arr.count > 0) {
+				[cache setObject:arr forKey:kAllRoutesKey];
+				return arr;
+			}
+		}
+		
+		@throw @"error";
+	})
+	.catch(^NSArray *(id error) {
+		NSLog(@"error: %@", error);
+		return @[@"Error retrieving all routes"];
+	});
+}
+
++ (PMKPromise *)getDescriptionForRouteId:(NSString *)routeId {
+	return nil;
+}
+
+
+#pragma mark - Other
+
++ (PMKPromise *)getLatestVersionNumber:(NSString *)currentVersion {
+	NSString *path = [kBaseURLPath stringByAppendingFormat:@"latestVersion?currentVersion=%@", currentVersion];
 	NSLog(@"hitting url: %@", path);
 	NSURLRequest *request = [[NSURLRequest alloc] initWithURL:[NSURL URLWithString:path]];
 	

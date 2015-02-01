@@ -12,7 +12,6 @@
 		F10E441C1A7D845D00204850 /* ServerHelper.m in Sources */ = {isa = PBXBuildFile; fileRef = F10E441B1A7D845D00204850 /* ServerHelper.m */; };
 		F10E441F1A7D847F00204850 /* PollPushManager.m in Sources */ = {isa = PBXBuildFile; fileRef = F10E441E1A7D847F00204850 /* PollPushManager.m */; };
 		F10E44231A7D877500204850 /* NSNib+Additions.m in Sources */ = {isa = PBXBuildFile; fileRef = F10E44221A7D877500204850 /* NSNib+Additions.m */; };
-		F10E44261A7D901400204850 /* GRTInfoHelper.m in Sources */ = {isa = PBXBuildFile; fileRef = F10E44251A7D901400204850 /* GRTInfoHelper.m */; };
 		F14C288D1A7DD2FE00FE2937 /* SettingsStatusView.xib in Resources */ = {isa = PBXBuildFile; fileRef = F14C288C1A7DD2FE00FE2937 /* SettingsStatusView.xib */; };
 		F14C28901A7DD34C00FE2937 /* SettingsStatusItem.m in Sources */ = {isa = PBXBuildFile; fileRef = F14C288F1A7DD34C00FE2937 /* SettingsStatusItem.m */; };
 		F14C28931A7DD36900FE2937 /* SettingsStatusView.m in Sources */ = {isa = PBXBuildFile; fileRef = F14C28921A7DD36900FE2937 /* SettingsStatusView.m */; };
@@ -53,8 +52,6 @@
 		F10E441E1A7D847F00204850 /* PollPushManager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = PollPushManager.m; path = Helpers/PollPushManager.m; sourceTree = "<group>"; };
 		F10E44211A7D877500204850 /* NSNib+Additions.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = "NSNib+Additions.h"; path = "Helpers/NSNib+Additions.h"; sourceTree = "<group>"; };
 		F10E44221A7D877500204850 /* NSNib+Additions.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = "NSNib+Additions.m"; path = "Helpers/NSNib+Additions.m"; sourceTree = "<group>"; };
-		F10E44241A7D901400204850 /* GRTInfoHelper.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = GRTInfoHelper.h; path = Helpers/GRTInfoHelper.h; sourceTree = "<group>"; };
-		F10E44251A7D901400204850 /* GRTInfoHelper.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = GRTInfoHelper.m; path = Helpers/GRTInfoHelper.m; sourceTree = "<group>"; };
 		F10E44281A7D9A0A00204850 /* ggrt.pch */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ggrt.pch; sourceTree = SOURCE_ROOT; };
 		F14C288C1A7DD2FE00FE2937 /* SettingsStatusView.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = SettingsStatusView.xib; sourceTree = "<group>"; };
 		F14C288E1A7DD34C00FE2937 /* SettingsStatusItem.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SettingsStatusItem.h; sourceTree = "<group>"; };
@@ -142,8 +139,6 @@
 				F10E441B1A7D845D00204850 /* ServerHelper.m */,
 				F10E441D1A7D847F00204850 /* PollPushManager.h */,
 				F10E441E1A7D847F00204850 /* PollPushManager.m */,
-				F10E44241A7D901400204850 /* GRTInfoHelper.h */,
-				F10E44251A7D901400204850 /* GRTInfoHelper.m */,
 				F10E44211A7D877500204850 /* NSNib+Additions.h */,
 				F10E44221A7D877500204850 /* NSNib+Additions.m */,
 			);
@@ -380,7 +375,6 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				F10E44261A7D901400204850 /* GRTInfoHelper.m in Sources */,
 				F10E44231A7D877500204850 /* NSNib+Additions.m in Sources */,
 				F14C28931A7DD36900FE2937 /* SettingsStatusView.m in Sources */,
 				F10E441C1A7D845D00204850 /* ServerHelper.m in Sources */,
