@@ -88,7 +88,6 @@ static NSCache *_cache = nil;
 	return [NSURLConnection promise:request]
 	.then(^NSArray*(NSDictionary *dict) {
 		if ([dict isKindOfClass:[NSDictionary class]] && [dict[@"status"] intValue] == 200) {
-			NSLog(@"dict: %@", dict);
 			NSArray *arr = [dict objectForKey:@"stops"];
 			if ([arr isKindOfClass:[NSArray class]] && arr.count > 0) {
 				[cache setObject:arr forKey:key];

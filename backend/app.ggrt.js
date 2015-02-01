@@ -6,10 +6,6 @@ var Q				= require("q");
 
 var BASE_URL  = "http://realtimemap.grt.ca/";
 
-// app.use(function(req, res) {
-//         res.redirect("/index.html");
-// });
-
 var server = app.listen(1729);
 console.log("Server started");
 
@@ -84,6 +80,10 @@ app.get ("/v1/latestVersion", function (req, res) {
     	status: 200,
     	latestVersion: "0.6"
     })
+});
+
+app.use(function(req, res) {
+	res.redirect("https://github.com/hweetty/ggrt");
 });
 
 var httpGet = function (url) {

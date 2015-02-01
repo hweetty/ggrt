@@ -9,7 +9,7 @@
 #ifndef ggrt_ggrt_pch
 #define ggrt_ggrt_pch
 
-#define kGGRTAppVersionNumber @"0.5"
+#define kGGRTAppVersionNumber @"0.6"
 
 // NOTIFICATIONS ==========================================
 #define kAddButtonPressedNotification @"kAddNewBusNotification"
@@ -29,10 +29,7 @@
 #define COLOUR(r, g, b) [NSColor colorWithDeviceRed:r/255.0f green:g/255.0f blue:b/255.0f alpha:1]
 // COLOURS ==========================================
 
-
-#define DEBUG
-
-#ifdef DEBUG
+#ifdef GGRT_DEBUG
 #define kBaseURLPath @"http://localhost:1729/v1/"
 #else
 #define kBaseURLPath @"http://ggrt.ca:1729/v1/"
