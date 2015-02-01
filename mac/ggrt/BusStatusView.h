@@ -10,10 +10,12 @@
 
 @interface BusStatusView : NSView
 
+@property (nonatomic) int minutesRemaining;
+
+// Do not touch below
 @property (weak) IBOutlet NSTextField *routeLabel;
 @property (weak) IBOutlet NSTextField *descriptionLabel;
 @property (weak) IBOutlet NSTextField *timeRemainingLabel;
-
 @property (weak) IBOutlet NSView *separatorView;
 
 @end

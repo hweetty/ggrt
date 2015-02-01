@@ -8,44 +8,52 @@
         <customObject id="-1" userLabel="First Responder" customClass="FirstResponder"/>
         <customObject id="-3" userLabel="Application" customClass="NSObject"/>
         <customView id="c22-O7-iKe" customClass="BusStatusView">
-            <rect key="frame" x="0.0" y="0.0" width="189" height="60"/>
+            <rect key="frame" x="0.0" y="0.0" width="189" height="55"/>
             <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
             <subviews>
                 <textField horizontalHuggingPriority="251" verticalHuggingPriority="750" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="wfy-j5-zEv">
-                    <rect key="frame" x="18" y="18" width="82" height="17"/>
-                    <textFieldCell key="cell" scrollable="YES" lineBreakMode="clipping" sendsActionOnEndEditing="YES" title="desc" id="a9N-xC-iTL">
+                    <rect key="frame" x="18" y="13" width="146" height="17"/>
+                    <textFieldCell key="cell" scrollable="YES" lineBreakMode="clipping" sendsActionOnEndEditing="YES" title="Conestoga Mall Terminal" id="a9N-xC-iTL">
                         <font key="font" metaFont="cellTitle"/>
                         <color key="textColor" name="labelColor" catalog="System" colorSpace="catalog"/>
                         <color key="backgroundColor" name="controlColor" catalog="System" colorSpace="catalog"/>
                     </textFieldCell>
                 </textField>
                 <textField horizontalHuggingPriority="251" verticalHuggingPriority="750" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="Gvz-6j-er7">
-                    <rect key="frame" x="18" y="38" width="52" height="18"/>
-                    <textFieldCell key="cell" scrollable="YES" lineBreakMode="clipping" sendsActionOnEndEditing="YES" title="#" id="AbR-Nq-h6s">
-                        <font key="font" metaFont="system" size="15"/>
+                    <rect key="frame" x="18" y="28" width="38" height="18"/>
+                    <textFieldCell key="cell" scrollable="YES" lineBreakMode="clipping" sendsActionOnEndEditing="YES" title="200" id="AbR-Nq-h6s">
+                        <font key="font" metaFont="system" size="16"/>
                         <color key="textColor" name="labelColor" catalog="System" colorSpace="catalog"/>
                         <color key="backgroundColor" name="controlColor" catalog="System" colorSpace="catalog"/>
                     </textFieldCell>
                 </textField>
-                <customView fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="PEN-WL-Evp">
-                    <rect key="frame" x="20" y="3" width="300" height="2"/>
+                <customView translatesAutoresizingMaskIntoConstraints="NO" id="PEN-WL-Evp">
+                    <rect key="frame" x="0.0" y="1" width="189" height="1"/>
+                    <constraints>
+                        <constraint firstAttribute="height" constant="1" id="UcW-F0-HrY"/>
+                    </constraints>
                 </customView>
                 <textField horizontalHuggingPriority="251" verticalHuggingPriority="750" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="GDM-Dg-PSM">
-                    <rect key="frame" x="72" y="32" width="45" height="17"/>
-                    <textFieldCell key="cell" scrollable="YES" lineBreakMode="clipping" sendsActionOnEndEditing="YES" title="5 mins" id="ooY-6r-wHC">
-                        <font key="font" metaFont="system" size="14"/>
-                        <color key="textColor" name="labelColor" catalog="System" colorSpace="catalog"/>
-                        <color key="backgroundColor" name="controlColor" catalog="System" colorSpace="catalog"/>
+                    <rect key="frame" x="54" y="28" width="62" height="18"/>
+                    <textFieldCell key="cell" scrollable="YES" lineBreakMode="clipping" sendsActionOnEndEditing="YES" title="0 mins" id="ooY-6r-wHC">
+                        <font key="font" metaFont="system" size="15"/>
+                        <color key="textColor" red="1" green="0.27450980392156865" blue="0.27450980392156865" alpha="1" colorSpace="calibratedRGB"/>
+                        <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
                     </textFieldCell>
                 </textField>
             </subviews>
+            <constraints>
+                <constraint firstAttribute="bottom" secondItem="PEN-WL-Evp" secondAttribute="bottom" constant="1" id="NIQ-GJ-3T7"/>
+                <constraint firstItem="PEN-WL-Evp" firstAttribute="leading" secondItem="c22-O7-iKe" secondAttribute="leading" id="jR4-WA-qVf"/>
+                <constraint firstAttribute="trailing" secondItem="PEN-WL-Evp" secondAttribute="trailing" id="mrF-Ah-pOi"/>
+            </constraints>
             <connections>
                 <outlet property="descriptionLabel" destination="wfy-j5-zEv" id="oOy-1z-rcP"/>
                 <outlet property="routeLabel" destination="Gvz-6j-er7" id="qDq-Ek-TNX"/>
                 <outlet property="separatorView" destination="PEN-WL-Evp" id="FAl-tb-txA"/>
                 <outlet property="timeRemainingLabel" destination="GDM-Dg-PSM" id="VJo-ym-4I0"/>
             </connections>
-            <point key="canvasLocation" x="286.5" y="259"/>
+            <point key="canvasLocation" x="286.5" y="257"/>
         </customView>
     </objects>
 </document>

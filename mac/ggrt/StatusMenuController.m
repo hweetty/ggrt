@@ -50,8 +50,14 @@ static NSString *const kBusRoutesKey = @"kBusRoutesKey";
 	NSDictionary *d = @{
 		@"routeId": @"200",
 		@"stopId": @"3629"
-		};
+	};
 	[_busRoutes addObject:d];
+	
+	NSDictionary *dd = @{
+		@"routeId": @"9",
+		@"stopId": @"1123"
+	};
+	[_busRoutes addObject:dd];
 	
 	[self.theMenu removeAllItems];
 	for (NSDictionary *dict in _busRoutes) {

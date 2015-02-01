@@ -64,7 +64,7 @@
 		if ([dict isKindOfClass:[NSDictionary class]]) {
 			NSLog(@"dict: %@", dict);
 			if (dict[@"Minutes"]) {
-				_view.timeRemainingLabel.stringValue = [NSString stringWithFormat:@"%@ mins", dict[@"Minutes"]];
+				_view.minutesRemaining = [dict[@"Minutes"] intValue];
 			}
 		}
 		else {
