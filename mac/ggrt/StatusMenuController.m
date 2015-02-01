@@ -26,6 +26,8 @@
 		self.theMenu = menu;
 		self.statusItem = item;
 		statusItem.highlightMode = YES;
+		[statusItem.button setImage:[NSImage imageNamed:@"bus"]];
+		[statusItem.button setAlternateImage:[NSImage imageNamed:@"bus"]];
 		
 		_isAdding = NO;
 		[self loadRoutes];

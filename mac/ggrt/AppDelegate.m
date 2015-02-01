@@ -20,7 +20,7 @@
 @implementation AppDelegate
 
 - (void)applicationDidFinishLaunching:(NSNotification *)aNotification {
-	self.statusItem = [[NSStatusBar systemStatusBar] statusItemWithLength:50];
+	self.statusItem = [[NSStatusBar systemStatusBar] statusItemWithLength:88];
 	[self.statusItem setMenu:self.statusMenu];
 	[self.statusMenu setDelegate:self];
 	
