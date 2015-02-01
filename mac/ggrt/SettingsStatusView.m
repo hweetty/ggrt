@@ -20,6 +20,8 @@ static BOOL _isDarkStatusBar = NO;
 - (void)awakeFromNib {
 	self.autoresizingMask = NSViewWidthSizable;
 	
+	self.creditsLabel.stringValue = @"© 2015 Jerry Yu\nIcon: Elva Yang";
+	
 	[[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(style) name:kTheMenuWillOpenNotification object:nil];
 	
 	[self style];
