@@ -9,6 +9,7 @@
 #import "StatusMenuController.h"
 #import "BusStatusItem.h"
 #import "SettingsStatusItem.h"
+#import "AddMenuItem.h"
 #import "PollPushManager.h"
 
 static NSString *const kBusRoutesKey = @"kBusRoutesKey";
@@ -32,6 +33,7 @@ static NSString *const kBusRoutesKey = @"kBusRoutesKey";
 		statusItem.attributedTitle = as;
 		[statusItem setHighlightMode:YES];
 		
+		_isAdding = NO;
 		[self loadDefaults];
 		[PollPushManager updateNow];
 		
@@ -42,6 +44,8 @@ static NSString *const kBusRoutesKey = @"kBusRoutesKey";
 		[[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(addButtonPressed) name:kAddNewBusNotification object:nil];
 
 		[[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(quitAppButtonPressed) name:kQuitAppNotification object:nil];
+		
+		[[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(menuClosed) name:kTheMenuDidClosenNotification object:nil];
 	}
 	
 	return self;
@@ -80,10 +84,17 @@ static NSString *const kBusRoutesKey = @"kBusRoutesKey";
 }
 
 
-#pragma mark - Settings Delegate
+#pragma mark - Notifications
 
 - (void)addButtonPressed {
+	if (_isAdding)	return;
+	_isAdding = YES;
+	
 	NSLog(@"creating new ");
+	AddMenuItem *item = [[AddMenuItem alloc] init];
+	NSUInteger numItems = self.theMenu.numberOfItems;
+	NSAssert(numItems > 0, @"There should be at least the settings view");
+	[self.theMenu insertItem:item atIndex:numItems-1];
 }
 
 - (void)quitAppButtonPressed {
@@ -91,5 +102,15 @@ static NSString *const kBusRoutesKey = @"kBusRoutesKey";
 	[self save];
 	[[NSApplication sharedApplication] terminate:self];
 }
+
+- (void)menuClosed {
+	if (_isAdding == NO)	return;
+	_isAdding = NO;
+	
+	NSUInteger numItems = self.theMenu.numberOfItems;
+	NSAssert(numItems >= 2, @"Should be at least two items");
+	[self.theMenu removeItemAtIndex:numItems - 2];
+}
+
 
 @end

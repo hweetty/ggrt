@@ -7,8 +7,9 @@
 //
 
 #import <Cocoa/Cocoa.h>
+#import "SuperStatusView.h"
 
-@interface BusStatusView : NSView
+@interface BusStatusView : SuperStatusView
 
 @property (nonatomic) int minutesRemaining;
 
@@ -16,6 +17,5 @@
 @property (weak) IBOutlet NSTextField *routeLabel;
 @property (weak) IBOutlet NSTextField *descriptionLabel;
 @property (weak) IBOutlet NSTextField *timeRemainingLabel;
-@property (weak) IBOutlet NSView *separatorView;
 
 @end

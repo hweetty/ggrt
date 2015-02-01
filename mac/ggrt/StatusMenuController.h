@@ -14,6 +14,7 @@
 		stopId: 3629
 	 */
 	NSMutableArray *_busRoutes;
+	BOOL _isAdding;
 }
 
 @property (nonatomic, weak) NSMenu *theMenu;

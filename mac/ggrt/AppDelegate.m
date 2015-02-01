@@ -32,6 +32,10 @@
 	[[NSNotificationCenter defaultCenter] postNotificationName:kTheMenuWillOpenNotification object:nil];
 }
 
+- (void)menuDidClose:(NSMenu *)menu {
+	[[NSNotificationCenter defaultCenter] postNotificationName:kTheMenuDidClosenNotification object:nil];
+}
+
 - (void)applicationWillTerminate:(NSNotification *)aNotification {
 	// Insert code here to tear down your application
 }

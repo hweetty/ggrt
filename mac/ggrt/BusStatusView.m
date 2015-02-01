@@ -10,25 +10,6 @@
 
 @implementation BusStatusView
 
-static BOOL _isDarkStatusBar = NO;
-
-+ (void)determineStatusBarColour {
-	// http://stackoverflow.com/a/24659148
-	_isDarkStatusBar = [[[NSAppearance currentAppearance] name] rangeOfString:@"NSAppearanceNameVibrantDark"].length > 0;
-}
-
-- (void)awakeFromNib {
-	self.autoresizingMask = NSViewWidthSizable;
-	
-	[[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(style) name:kTheMenuWillOpenNotification object:nil];
-	
-	[self style];
-}
-
-- (void)dealloc {
-	[[NSNotificationCenter defaultCenter] removeObserver:self];
-}
-
 - (void)setMinutesRemaining:(int)mins {
 	_minutesRemaining = mins;
 	
@@ -48,30 +29,19 @@ static BOOL _isDarkStatusBar = NO;
 }
 
 
-#pragma mark - Stylin
+#pragma mark - Override
 
 - (void)style {
-	[BusStatusView determineStatusBarColour];
+	[super style];
 	
 	// Style the MinutesRemaining label
 	self.minutesRemaining = _minutesRemaining;
 	
 	self.descriptionLabel.textColor = [self descriptionTextColor];
-	
-	self.separatorView.wantsLayer = YES;
-	self.separatorView.layer.backgroundColor = [self separatorColor];
-}
-
-- (CGColorRef)separatorColor {
-	if (_isDarkStatusBar) {
-		return [MONO(0.6) CGColor];
-	}
-	
-	return [MONO(0.7) CGColor];
 }
 
 - (NSColor *)timeRemainingTextColour {
-	if (_isDarkStatusBar) {
+	if (self.isDarkStatusBar) {
 		if (_minutesRemaining > 10) {
 			return COLOUR(0, 255, 0);
 		}
@@ -95,20 +65,5 @@ static BOOL _isDarkStatusBar = NO;
 	}
 }
 
-- (NSColor *)defaultTextColor {
-	if (_isDarkStatusBar) {
-		return MONO(1);
-	}
-	
-	return MONO(0);
-}
-
-- (NSColor *)descriptionTextColor {
-	if (_isDarkStatusBar) {
-		return MONO(0.95);
-	}
-	
-	return MONO(0.05);
-}
 
 @end

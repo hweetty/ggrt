@@ -13,6 +13,7 @@
 #define kAddNewBusNotification @"kAddNewBusNotification"
 #define kQuitAppNotification @"kQuitAppNotification"
 #define kTheMenuWillOpenNotification @"kTheMenuWillOpen"
+#define kTheMenuDidClosenNotification @"kTheMenuDidClosenNotification"
 // NOTIFICATIONS ==========================================
 
 // COLOURS ==========================================

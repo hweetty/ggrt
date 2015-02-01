@@ -1,0 +1,43 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<document type="com.apple.InterfaceBuilder3.Cocoa.XIB" version="3.0" toolsVersion="6254" systemVersion="14C109" targetRuntime="MacOSX.Cocoa" propertyAccessControl="none" useAutolayout="YES" customObjectInstantitationMethod="direct">
+    <dependencies>
+        <plugIn identifier="com.apple.InterfaceBuilder.CocoaPlugin" version="6254"/>
+    </dependencies>
+    <objects>
+        <customObject id="-2" userLabel="File's Owner"/>
+        <customObject id="-1" userLabel="First Responder" customClass="FirstResponder"/>
+        <customObject id="-3" userLabel="Application" customClass="NSObject"/>
+        <customView id="c22-O7-iKe" customClass="AddMenuView">
+            <rect key="frame" x="0.0" y="0.0" width="189" height="55"/>
+            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
+            <subviews>
+                <textField focusRingType="none" verticalHuggingPriority="750" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="1YY-4b-3Zv">
+                    <rect key="frame" x="20" y="16" width="100" height="22"/>
+                    <textFieldCell key="cell" scrollable="YES" lineBreakMode="clipping" selectable="YES" editable="YES" sendsActionOnEndEditing="YES" state="on" focusRingType="none" placeholderString="Enter Bus #" id="Otr-NS-RIE">
+                        <font key="font" metaFont="system" size="14"/>
+                        <color key="textColor" name="textColor" catalog="System" colorSpace="catalog"/>
+                        <color key="backgroundColor" name="textBackgroundColor" catalog="System" colorSpace="catalog"/>
+                    </textFieldCell>
+                    <connections>
+                        <outlet property="delegate" destination="-2" id="Qel-A8-c7R"/>
+                    </connections>
+                </textField>
+                <customView translatesAutoresizingMaskIntoConstraints="NO" id="CSK-wQ-5Mv">
+                    <rect key="frame" x="0.0" y="1" width="189" height="1"/>
+                    <constraints>
+                        <constraint firstAttribute="height" constant="1" id="lyS-0x-dn7"/>
+                    </constraints>
+                </customView>
+            </subviews>
+            <constraints>
+                <constraint firstItem="CSK-wQ-5Mv" firstAttribute="leading" secondItem="c22-O7-iKe" secondAttribute="leading" id="8vW-PQ-RqE"/>
+                <constraint firstAttribute="bottom" secondItem="CSK-wQ-5Mv" secondAttribute="bottom" constant="1" id="RS0-iT-VHV"/>
+                <constraint firstAttribute="trailing" secondItem="CSK-wQ-5Mv" secondAttribute="trailing" id="p5A-gG-2nY"/>
+            </constraints>
+            <connections>
+                <outlet property="routeTextfield" destination="1YY-4b-3Zv" id="Cm9-YK-J45"/>
+                <outlet property="separatorView" destination="CSK-wQ-5Mv" id="Wyh-x3-OLk"/>
+            </connections>
+        </customView>
+    </objects>
+</document>
