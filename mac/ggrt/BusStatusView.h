@@ -9,13 +9,20 @@
 #import <Cocoa/Cocoa.h>
 #import "SuperStatusView.h"
 
+@class BusStatusItem;
+
 @interface BusStatusView : SuperStatusView
 
 @property (nonatomic) int minutesRemaining;
+
+@property (nonatomic, weak) BusStatusItem *delegate;
 
 // Do not touch below
 @property (weak) IBOutlet NSTextField *routeLabel;
 @property (weak) IBOutlet NSTextField *descriptionLabel;
 @property (weak) IBOutlet NSTextField *timeRemainingLabel;
+@property (weak) IBOutlet NSButton *deleteButton;
+
+- (IBAction)deleteButtonPressed:(NSButton *)sender;
 
 @end

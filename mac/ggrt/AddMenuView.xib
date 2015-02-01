@@ -8,11 +8,11 @@
         <customObject id="-1" userLabel="First Responder" customClass="FirstResponder"/>
         <customObject id="-3" userLabel="Application" customClass="NSObject"/>
         <customView id="c22-O7-iKe" customClass="AddMenuView">
-            <rect key="frame" x="0.0" y="0.0" width="241" height="55"/>
+            <rect key="frame" x="0.0" y="0.0" width="253" height="55"/>
             <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
             <subviews>
                 <customView translatesAutoresizingMaskIntoConstraints="NO" id="CSK-wQ-5Mv">
-                    <rect key="frame" x="0.0" y="1" width="241" height="1"/>
+                    <rect key="frame" x="0.0" y="1" width="253" height="1"/>
                     <constraints>
                         <constraint firstAttribute="height" constant="1" id="lyS-0x-dn7"/>
                     </constraints>
@@ -40,10 +40,10 @@
                     </comboBoxCell>
                 </comboBox>
                 <button horizontalHuggingPriority="750" verticalHuggingPriority="750" translatesAutoresizingMaskIntoConstraints="NO" id="Ci3-Qr-FLY">
-                    <rect key="frame" x="208" y="18" width="13" height="13"/>
-                    <buttonCell key="cell" type="disclosureTriangle" bezelStyle="disclosure" imagePosition="above" alignment="left" borderStyle="border" imageScaling="proportionallyDown" inset="2" id="bdS-mh-2dH">
-                        <behavior key="behavior" pushIn="YES" changeBackground="YES" changeGray="YES" lightByContents="YES"/>
-                        <font key="font" metaFont="system"/>
+                    <rect key="frame" x="211" y="15" width="22" height="19"/>
+                    <buttonCell key="cell" type="roundRect" title="+" bezelStyle="roundedRect" imagePosition="above" alignment="center" borderStyle="border" imageScaling="proportionallyDown" inset="2" id="bdS-mh-2dH">
+                        <behavior key="behavior" pushIn="YES" lightByBackground="YES" lightByGray="YES"/>
+                        <font key="font" metaFont="cellTitle"/>
                     </buttonCell>
                     <connections>
                         <action selector="addButtonPressed:" target="c22-O7-iKe" id="R6b-7S-67O"/>
@@ -62,7 +62,7 @@
                 <outlet property="separatorView" destination="CSK-wQ-5Mv" id="Wyh-x3-OLk"/>
                 <outlet property="stopDropBox" destination="jiZ-Tl-RDO" id="EsX-ra-OAO"/>
             </connections>
-            <point key="canvasLocation" x="192.5" y="342.5"/>
+            <point key="canvasLocation" x="198.5" y="342.5"/>
         </customView>
     </objects>
 </document>

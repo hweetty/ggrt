@@ -11,8 +11,12 @@
 @implementation MyComboBox
 
 - (void)mouseDown:(NSEvent *)theEvent {
-	NSLog(@"down");
 	[(NSComboBoxCell*)self.cell performSelector:@selector(popUp:)];
+}
+
+// Silence annoying warning
+- (void)popUp:(id)hi {
+	NSLog(@"shouldnt happen");
 }
 
 @end

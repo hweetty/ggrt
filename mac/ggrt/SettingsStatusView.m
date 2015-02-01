@@ -18,6 +18,8 @@ static BOOL _isDarkStatusBar = NO;
 }
 
 - (void)awakeFromNib {
+	self.autoresizingMask = NSViewWidthSizable;
+	
 	[[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(style) name:kTheMenuWillOpenNotification object:nil];
 	
 	[self style];

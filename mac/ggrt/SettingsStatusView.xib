@@ -11,6 +11,16 @@
             <rect key="frame" x="0.0" y="0.0" width="250" height="32"/>
             <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
             <subviews>
+                <button verticalHuggingPriority="750" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="YhL-y3-GWl">
+                    <rect key="frame" x="20" y="4" width="22" height="19"/>
+                    <buttonCell key="cell" type="roundRect" title="+" bezelStyle="roundedRect" alignment="center" borderStyle="border" imageScaling="proportionallyDown" inset="2" id="8M4-nb-jfN">
+                        <behavior key="behavior" pushIn="YES" lightByBackground="YES" lightByGray="YES"/>
+                        <font key="font" metaFont="cellTitle"/>
+                    </buttonCell>
+                    <connections>
+                        <action selector="addButtonPressed:" target="c22-O7-iKe" id="yAY-gH-g6z"/>
+                    </connections>
+                </button>
                 <button verticalHuggingPriority="750" translatesAutoresizingMaskIntoConstraints="NO" id="LJB-qz-qdY">
                     <rect key="frame" x="209" y="4" width="21" height="19"/>
                     <buttonCell key="cell" type="roundRect" title="x" bezelStyle="roundedRect" alignment="center" borderStyle="border" imageScaling="proportionallyDown" inset="2" id="xCb-PD-bPF">
@@ -22,29 +32,19 @@
                     </connections>
                 </button>
                 <textField horizontalHuggingPriority="251" verticalHuggingPriority="750" translatesAutoresizingMaskIntoConstraints="NO" id="fDn-1K-mIh">
-                    <rect key="frame" x="71" y="7" width="108" height="17"/>
+                    <rect key="frame" x="78" y="5" width="94" height="17"/>
                     <constraints>
                         <constraint firstAttribute="height" constant="17" id="H8F-aX-LOA"/>
                     </constraints>
                     <textFieldCell key="cell" scrollable="YES" lineBreakMode="clipping" sendsActionOnEndEditing="YES" alignment="center" title="© 2015 Jerry Yu" id="Qss-Jv-OaL">
-                        <font key="font" metaFont="system"/>
+                        <font key="font" metaFont="smallSystem"/>
                         <color key="textColor" name="labelColor" catalog="System" colorSpace="catalog"/>
                         <color key="backgroundColor" name="textBackgroundColor" catalog="System" colorSpace="catalog"/>
                     </textFieldCell>
                 </textField>
-                <button verticalHuggingPriority="750" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="YhL-y3-GWl">
-                    <rect key="frame" x="20" y="4" width="22" height="19"/>
-                    <buttonCell key="cell" type="roundRect" title="+" bezelStyle="roundedRect" alignment="center" borderStyle="border" imageScaling="proportionallyDown" inset="2" id="8M4-nb-jfN">
-                        <behavior key="behavior" pushIn="YES" lightByBackground="YES" lightByGray="YES"/>
-                        <font key="font" metaFont="cellTitle"/>
-                    </buttonCell>
-                    <connections>
-                        <action selector="addButtonPressed:" target="c22-O7-iKe" id="yAY-gH-g6z"/>
-                    </connections>
-                </button>
             </subviews>
             <constraints>
-                <constraint firstAttribute="centerY" secondItem="fDn-1K-mIh" secondAttribute="centerY" constant="-0.5" id="1lJ-rg-XfG"/>
+                <constraint firstAttribute="centerY" secondItem="fDn-1K-mIh" secondAttribute="centerY" constant="-3" id="1lJ-rg-XfG"/>
                 <constraint firstAttribute="centerX" secondItem="fDn-1K-mIh" secondAttribute="centerX" id="LtR-Je-ugD"/>
                 <constraint firstAttribute="centerY" secondItem="LJB-qz-qdY" secondAttribute="centerY" constant="-2" id="cvT-ig-3t4"/>
                 <constraint firstAttribute="trailing" secondItem="LJB-qz-qdY" secondAttribute="trailing" constant="20" id="hSp-p0-Guf"/>

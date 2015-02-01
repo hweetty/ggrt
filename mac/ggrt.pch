@@ -15,6 +15,7 @@
 #define kAddButtonPressedNotification @"kAddNewBusNotification"
 #define kQuitAppNotification @"kQuitAppNotification"
 #define kReallyDidAddNewBusNotification @"kReallyDidAddNewBusNotification"
+#define kDeletedBusNotification @"kDeletedBusNotification"
 #define kTheMenuWillOpenNotification @"kTheMenuWillOpen"
 #define kTheMenuDidClosenNotification @"kTheMenuDidClosenNotification"
 // NOTIFICATIONS ==========================================

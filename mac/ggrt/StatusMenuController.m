@@ -44,6 +44,8 @@
 		[[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(addButtonPressed) name:kAddButtonPressedNotification object:nil];
 		
 		[[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(addNewCell:) name:kReallyDidAddNewBusNotification object:nil];
+		
+		[[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(deleteCell:) name:kDeletedBusNotification object:nil];
 
 		[[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(quitAppButtonPressed) name:kQuitAppNotification object:nil];
 		
@@ -91,7 +93,7 @@
 	[self insertItemBelowSettings:item];
 }
 
-- (void)addNewCell:(NSNotification*)aNotification {
+- (void)addNewCell:(NSNotification *)aNotification {
 	if (_isAdding == NO)	return;
 	[self menuClosed]; // Remove the AddMenuItem
 	
@@ -104,6 +106,18 @@
 	BusStatusItem *item = [[BusStatusItem alloc] initWithDictionary:dict];
 	
 	[self insertItemBelowSettings:item];
+}
+
+- (void)deleteCell:(NSNotification *)aNotification {
+	NSAssert(self.theMenu.numberOfItems > 1, @"There should be at least one bus cell");
+	
+	BusStatusItem *item = [aNotification object];
+	NSUInteger i = [self.theMenu indexOfItem:item];
+
+	NSAssert(i >= 0 && i < _busRoutes.count, @"Invalid range of item");
+	[_busRoutes removeObjectAtIndex:i];
+	[self.theMenu removeItemAtIndex:i];
+	[self save];
 }
 
 - (void)quitAppButtonPressed {

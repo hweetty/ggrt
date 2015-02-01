@@ -19,6 +19,7 @@
 	if ((self = [super init])) {
 		_view = [NSNib loadNibWithClass:[BusStatusView class]];
 		self.view = _view;
+		_view.delegate = self;
 		
 		self.busData = dict;
 		[[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(update) name:kGGRTUpdateNotification object:nil];

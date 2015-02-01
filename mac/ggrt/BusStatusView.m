@@ -10,6 +10,22 @@
 
 @implementation BusStatusView
 
+- (void)awakeFromNib {
+	[super awakeFromNib];
+	
+	NSTrackingArea *area = [[NSTrackingArea alloc] initWithRect:self.bounds options:NSTrackingActiveAlways | NSTrackingMouseEnteredAndExited owner:self userInfo:nil];
+	[self addTrackingArea:area];
+}
+
+- (void)mouseEntered:(NSEvent *)theEvent {
+	self.deleteButton.hidden = NO;
+}
+
+- (void)mouseExited:(NSEvent *)theEvent {
+	self.deleteButton.hidden = YES;
+}
+
+
 - (void)setMinutesRemaining:(int)mins {
 	_minutesRemaining = mins;
 	
@@ -65,5 +81,8 @@
 	}
 }
 
+- (IBAction)deleteButtonPressed:(NSButton *)sender {
+	[[NSNotificationCenter defaultCenter] postNotificationName:kDeletedBusNotification object:self.delegate];
+}
 
 @end
