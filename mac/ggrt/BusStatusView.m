@@ -7,6 +7,7 @@
 //
 
 #import "BusStatusView.h"
+#import "DefaultIconView.h"
 
 @implementation BusStatusView
 
@@ -17,14 +18,35 @@
 	[self addTrackingArea:area];
 }
 
+- (void)mouseUp:(NSEvent *)theEvent {
+	if (self.isDefault) {
+		[[NSNotificationCenter defaultCenter] postNotificationName:kDefaultBusRouteChangedNotification object:nil];
+	}
+	else {
+		[[NSNotificationCenter defaultCenter] postNotificationName:kDefaultBusRouteChangedNotification object:self.delegate];
+	}
+}
+
 - (void)mouseEntered:(NSEvent *)theEvent {
 	self.deleteButton.hidden = NO;
+	
+	self.defaultIconView.hover = YES;
+	[self.defaultIconView setNeedsDisplay:YES];
 }
 
 - (void)mouseExited:(NSEvent *)theEvent {
 	self.deleteButton.hidden = YES;
+	
+	self.defaultIconView.hover = NO;
+	[self.defaultIconView setNeedsDisplay:YES];
 }
 
+- (void)setIsDefault:(BOOL)isDefault {
+	_isDefault = isDefault;
+	self.defaultIconView.isDefault = isDefault;
+	[self.defaultIconView setNeedsDisplay:YES];
+	[self updateController];
+}
 
 - (void)setMinutesRemaining:(int)mins {
 	_minutesRemaining = mins;
@@ -42,8 +64,15 @@
 	
 	self.timeRemainingLabel.textColor = [self timeRemainingTextColour];
 	self.timeRemainingLabel.attributedStringValue = as;
+	
+	[self updateController];
 }
 
+- (void)updateController {
+	if (self.isDefault) {
+		[[NSNotificationCenter defaultCenter] postNotificationName:kUpdateDefaultBusMinutesLeftNotification object:[NSNumber numberWithInt:self.minutesRemaining]];
+	}
+}
 
 #pragma mark - Override
 

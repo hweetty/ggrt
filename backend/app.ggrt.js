@@ -52,6 +52,30 @@ app.get ("/v1/getAllRoutes", function (req, res) {
 	});
 });
 
+app.get ("/v1/GetStopsForRoute", function (req, res) {
+    var params = req.query;
+    if (params.routeId == null) {
+        res.send ({
+            status: 400,
+            message: "Unspecified routeId"
+        });
+    }
+    else {
+    	_getStopsForRouteInfo(params.routeId, res);
+    }
+});
+
+function _getStopsForRouteInfo (routeId, stopId, res) {
+	var url = BASE_URL + "Stop/GetByRouteId?routeId=" + routeId;
+	httpGet(url).then(function (data) {
+		console.log(data);
+		res.send ({
+			status: 200,
+			stops: data
+		});
+	})
+}
+
 app.get ("/v1/latestVersion", function (req, res) {
     res.send ({
     	status: 200,

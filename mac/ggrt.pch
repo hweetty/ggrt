@@ -18,6 +18,9 @@
 #define kDeletedBusNotification @"kDeletedBusNotification"
 #define kTheMenuWillOpenNotification @"kTheMenuWillOpen"
 #define kTheMenuDidClosenNotification @"kTheMenuDidClosenNotification"
+
+#define kDefaultBusRouteChangedNotification @"kDefaultBusRouteChangedNotification"
+#define kUpdateDefaultBusMinutesLeftNotification @"kUpdateDefaultBusMinutesLeftNotification"
 // NOTIFICATIONS ==========================================
 
 // COLOURS ==========================================

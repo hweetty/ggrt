@@ -10,14 +10,17 @@
 #import "SuperStatusView.h"
 
 @class BusStatusItem;
+@class DefaultIconView;
 
 @interface BusStatusView : SuperStatusView
 
 @property (nonatomic) int minutesRemaining;
 
 @property (nonatomic, weak) BusStatusItem *delegate;
+@property (nonatomic) BOOL isDefault;
 
 // Do not touch below
+@property (weak) IBOutlet DefaultIconView *defaultIconView;
 @property (weak) IBOutlet NSTextField *routeLabel;
 @property (weak) IBOutlet NSTextField *descriptionLabel;
 @property (weak) IBOutlet NSTextField *timeRemainingLabel;

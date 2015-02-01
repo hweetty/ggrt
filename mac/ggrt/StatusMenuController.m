@@ -8,11 +8,13 @@
 
 #import "StatusMenuController.h"
 #import "BusStatusItem.h"
+#import "BusStatusView.h"
 #import "SettingsStatusItem.h"
 #import "AddMenuItem.h"
 #import "PollPushManager.h"
 
 #define kBusRoutesKey @"kBusRoutesKey"
+#define kDefaultRouteIndexKey @"kDefaultRouteIndexKey"
 
 @implementation StatusMenuController
 
@@ -23,18 +25,11 @@
 	if ((self = [super init])) {
 		self.theMenu = menu;
 		self.statusItem = item;
-		
-		[item setTitle:@"10m\n200"];
-		
-		NSMutableAttributedString *as = [[NSMutableAttributedString alloc] initWithString:@"200\n10 mins"];
-		NSRange range = NSMakeRange(0, as.length);
-		[as addAttribute:NSFontAttributeName value:[NSFont systemFontOfSize:10] range:range];
-		
-		statusItem.attributedTitle = as;
-		[statusItem setHighlightMode:YES];
+		statusItem.highlightMode = YES;
 		
 		_isAdding = NO;
-		[self loadDefaults];
+		[self loadRoutes];
+		[self loadDefault];
 		[PollPushManager updateNow];
 		
 		SettingsStatusItem *settings = [[SettingsStatusItem alloc] init];
@@ -50,12 +45,79 @@
 		[[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(quitAppButtonPressed) name:kQuitAppNotification object:nil];
 		
 		[[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(menuClosed) name:kTheMenuDidClosenNotification object:nil];
+		
+		[[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(defaultChanged:) name:kDefaultBusRouteChangedNotification object:nil];
+		
+		[[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(minutesChanged:) name:kUpdateDefaultBusMinutesLeftNotification object:nil];
+		
+		_minutes = -1;
+		[self swapTitle];
 	}
 	
 	return self;
 }
 
-- (void)loadDefaults {
+static BOOL _route = NO;
+
+- (void)swapTitle {
+	[self performSelector:@selector(swapTitle) withObject:nil afterDelay:2];
+	
+	if (_defaultIndex == -1) {
+		[self setDefaultStatusTitle];
+	}
+	else {
+		_route = !_route;
+		
+		[self updateSwappingTitle];
+	}
+}
+- (void)updateSwappingTitle {
+	if (_route) {
+		[self.statusItem setTitle:[[_busRoutes objectAtIndex:_defaultIndex] objectForKey:@"routeId"]];
+	}
+	else {
+		if (_minutes == -1) {
+			[self.statusItem setTitle:@"?m"];
+		}
+		else {
+			[self.statusItem setTitle:[NSString stringWithFormat:@"%dm", _minutes]];
+		}
+	}
+}
+
+- (void)minutesChanged:(NSNotification *)aNotif {
+	NSString *routeId = [[_busRoutes objectAtIndex:_defaultIndex] objectForKey:@"routeId"];
+	if (aNotif) {
+		_minutes = [[aNotif object] intValue];
+		routeId = [routeId stringByAppendingFormat:@"\n%dm", _minutes];
+	}
+	
+	_route = YES;
+	[self updateSwappingTitle];
+}
+
+- (void)setDefaultStatusTitle {
+	[self.statusItem setTitle:@"GGRT"];
+}
+
+- (void)loadDefault {
+	NSAssert (_busRoutes, @"must load routes first");
+	_defaultIndex = [[[NSUserDefaults standardUserDefaults] objectForKey:kDefaultRouteIndexKey] intValue];
+	
+	if (_busRoutes.count == 0) {
+		_defaultIndex = -1;
+		[self setDefaultStatusTitle];
+	}
+	
+	if (_defaultIndex >= 0) {
+		BusStatusItem *item = (BusStatusItem *)[self.theMenu itemAtIndex:_defaultIndex];
+		[(BusStatusView *)item.view setIsDefault:YES];
+	}
+	
+	[self minutesChanged:nil];
+}
+
+- (void)loadRoutes {
 	NSArray *savedRoutes = [[NSUserDefaults standardUserDefaults] objectForKey:kBusRoutesKey];
 	if (savedRoutes) {
 		_busRoutes = [[NSMutableArray alloc] initWithArray:savedRoutes];
@@ -73,10 +135,32 @@
 
 - (void)save {
 	[[NSUserDefaults standardUserDefaults] setObject:_busRoutes forKey:kBusRoutesKey];
+	[[NSUserDefaults standardUserDefaults] setObject:[NSNumber numberWithInteger:_defaultIndex] forKey:kDefaultRouteIndexKey];
 }
 
 
 #pragma mark - Notifications
+
+- (void)defaultChanged:(NSNotification *)aNotif {
+	// Set previous
+	if (_defaultIndex >= 0 && _defaultIndex < _busRoutes.count) {
+		BusStatusItem *item = (BusStatusItem *)[self.theMenu itemAtIndex:_defaultIndex];
+		[(BusStatusView *)item.view setIsDefault:NO];
+	}
+	
+	BusStatusItem *item = [aNotif object];
+	if (item) {
+		[(BusStatusView *)item.view setIsDefault:YES];
+		_defaultIndex = [self.theMenu indexOfItem:item];
+	}
+	else {
+		_defaultIndex = -1;
+		[self setDefaultStatusTitle];
+	}
+	
+	[self minutesChanged:nil];
+	[self save];
+}
 
 - (void)insertItemBelowSettings:(NSMenuItem *)item {
 	NSUInteger numItems = self.theMenu.numberOfItems;
@@ -88,7 +172,6 @@
 	if (_isAdding)	return;
 	_isAdding = YES;
 	
-	NSLog(@"creating new ");
 	AddMenuItem *item = [[AddMenuItem alloc] init];
 	[self insertItemBelowSettings:item];
 }
@@ -99,12 +182,10 @@
 	
 	// Insert new item
 	NSDictionary *dict = [aNotification object];
-	NSLog(@"got: %@", dict);
 	[_busRoutes addObject:dict];
 	[self save];
 	
 	BusStatusItem *item = [[BusStatusItem alloc] initWithDictionary:dict];
-	
 	[self insertItemBelowSettings:item];
 }
 
@@ -113,16 +194,19 @@
 	
 	BusStatusItem *item = [aNotification object];
 	NSUInteger i = [self.theMenu indexOfItem:item];
-
 	NSAssert(i >= 0 && i < _busRoutes.count, @"Invalid range of item");
+	
+	// Update default index?
+	if (_defaultIndex < i) {
+		_defaultIndex--;
+	}
+	
 	[_busRoutes removeObjectAtIndex:i];
 	[self.theMenu removeItemAtIndex:i];
 	[self save];
 }
 
 - (void)quitAppButtonPressed {
-	NSLog(@"quiting ");
-	[self save];
 	[[NSApplication sharedApplication] terminate:self];
 }
 
