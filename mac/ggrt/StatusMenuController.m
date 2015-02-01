@@ -12,7 +12,7 @@
 #import "AddMenuItem.h"
 #import "PollPushManager.h"
 
-static NSString *const kBusRoutesKey = @"kBusRoutesKey";
+#define kBusRoutesKey @"kBusRoutesKey"
 
 @implementation StatusMenuController
 
@@ -41,7 +41,9 @@ static NSString *const kBusRoutesKey = @"kBusRoutesKey";
 		[self.theMenu addItem:settings];
 		
 		// Notifications
-		[[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(addButtonPressed) name:kAddNewBusNotification object:nil];
+		[[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(addButtonPressed) name:kAddButtonPressedNotification object:nil];
+		
+		[[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(addNewCell:) name:kReallyDidAddNewBusNotification object:nil];
 
 		[[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(quitAppButtonPressed) name:kQuitAppNotification object:nil];
 		
@@ -60,18 +62,6 @@ static NSString *const kBusRoutesKey = @"kBusRoutesKey";
 		_busRoutes  = [[NSMutableArray alloc] init];
 	}
 	
-	NSDictionary *d = @{
-		@"routeId": @"200",
-		@"stopId": @"3629"
-	};
-	[_busRoutes addObject:d];
-	
-	NSDictionary *dd = @{
-		@"routeId": @"9",
-		@"stopId": @"1123"
-	};
-	[_busRoutes addObject:dd];
-	
 	[self.theMenu removeAllItems];
 	for (NSDictionary *dict in _busRoutes) {
 		BusStatusItem *item = [[BusStatusItem alloc] initWithDictionary:dict];
@@ -80,11 +70,17 @@ static NSString *const kBusRoutesKey = @"kBusRoutesKey";
 }
 
 - (void)save {
-	NSLog(@"saving");
+	[[NSUserDefaults standardUserDefaults] setObject:_busRoutes forKey:kBusRoutesKey];
 }
 
 
 #pragma mark - Notifications
+
+- (void)insertItemBelowSettings:(NSMenuItem *)item {
+	NSUInteger numItems = self.theMenu.numberOfItems;
+	NSAssert(numItems > 0, @"There should be at least the settings view");
+	[self.theMenu insertItem:item atIndex:numItems-1];
+}
 
 - (void)addButtonPressed {
 	if (_isAdding)	return;
@@ -92,9 +88,22 @@ static NSString *const kBusRoutesKey = @"kBusRoutesKey";
 	
 	NSLog(@"creating new ");
 	AddMenuItem *item = [[AddMenuItem alloc] init];
-	NSUInteger numItems = self.theMenu.numberOfItems;
-	NSAssert(numItems > 0, @"There should be at least the settings view");
-	[self.theMenu insertItem:item atIndex:numItems-1];
+	[self insertItemBelowSettings:item];
+}
+
+- (void)addNewCell:(NSNotification*)aNotification {
+	if (_isAdding == NO)	return;
+	[self menuClosed]; // Remove the AddMenuItem
+	
+	// Insert new item
+	NSDictionary *dict = [aNotification object];
+	NSLog(@"got: %@", dict);
+	[_busRoutes addObject:dict];
+	[self save];
+	
+	BusStatusItem *item = [[BusStatusItem alloc] initWithDictionary:dict];
+	
+	[self insertItemBelowSettings:item];
 }
 
 - (void)quitAppButtonPressed {

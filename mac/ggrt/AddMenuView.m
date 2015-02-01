@@ -11,7 +11,16 @@
 #import "ServerHelper.h"
 #import <PromiseKit/PromiseKit.h>
 
-@implementation AddMenuView
+@implementation AddMenuView {
+	NSArray *_routes;
+	
+	/* Array of Dictionary (all string values):
+		- stopId
+		- Name
+		- Direction
+	 */
+	NSArray *_stops;
+}
 
 - (void)awakeFromNib {
 	[super awakeFromNib];
@@ -20,6 +29,7 @@
 	self.stopDropBox.delegate = self;
 	
 	[ServerHelper getAllRoutes].then(^(NSArray *routes) {
+		_routes = routes;
 		NSLog(@"got routes: %@", routes);
 		
 		for (NSString *name in routes) {
@@ -42,6 +52,19 @@
 - (void)updateStopDopdown {
 	
 	[self.stopDropBox removeAllItems];
+}
+
+- (IBAction)addButtonPressed:(NSButton *)sender {
+	NSString *routeId = [_routes objectAtIndex:self.routeDropdown.indexOfSelectedItem];
+	NSString *stopId = [[_stops objectAtIndex:self.stopDropBox.indexOfSelectedItem] objectForKey:@"stopId"];
+	
+	stopId = @"1234";
+	
+	NSDictionary *dict = @{
+		@"routeId": routeId,
+		@"stopId":	stopId
+	};
+	[[NSNotificationCenter defaultCenter] postNotificationName:kReallyDidAddNewBusNotification object:dict];
 }
 
 @end

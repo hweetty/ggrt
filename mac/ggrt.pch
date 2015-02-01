@@ -12,8 +12,9 @@
 #define kGGRTAppVersionNumber @"0.5"
 
 // NOTIFICATIONS ==========================================
-#define kAddNewBusNotification @"kAddNewBusNotification"
+#define kAddButtonPressedNotification @"kAddNewBusNotification"
 #define kQuitAppNotification @"kQuitAppNotification"
+#define kReallyDidAddNewBusNotification @"kReallyDidAddNewBusNotification"
 #define kTheMenuWillOpenNotification @"kTheMenuWillOpen"
 #define kTheMenuDidClosenNotification @"kTheMenuDidClosenNotification"
 // NOTIFICATIONS ==========================================

@@ -28,7 +28,7 @@ static BOOL _isDarkStatusBar = NO;
 }
 
 - (IBAction)addButtonPressed:(NSButton *)sender {
-	[[NSNotificationCenter defaultCenter] postNotificationName:kAddNewBusNotification object:nil];
+	[[NSNotificationCenter defaultCenter] postNotificationName:kAddButtonPressedNotification object:nil];
 }
 
 - (IBAction)quitButtonPressed:

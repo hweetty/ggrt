@@ -16,5 +16,6 @@
 @property (weak) IBOutlet MyComboBox *routeDropdown;
 @property (weak) IBOutlet MyComboBox *stopDropBox;
 
+- (IBAction)addButtonPressed:(NSButton *)sender;
 
 @end

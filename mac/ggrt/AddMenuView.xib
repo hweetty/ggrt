@@ -39,11 +39,23 @@
                         </objectValues>
                     </comboBoxCell>
                 </comboBox>
+                <button horizontalHuggingPriority="750" verticalHuggingPriority="750" translatesAutoresizingMaskIntoConstraints="NO" id="Ci3-Qr-FLY">
+                    <rect key="frame" x="208" y="18" width="13" height="13"/>
+                    <buttonCell key="cell" type="disclosureTriangle" bezelStyle="disclosure" imagePosition="above" alignment="left" borderStyle="border" imageScaling="proportionallyDown" inset="2" id="bdS-mh-2dH">
+                        <behavior key="behavior" pushIn="YES" changeBackground="YES" changeGray="YES" lightByContents="YES"/>
+                        <font key="font" metaFont="system"/>
+                    </buttonCell>
+                    <connections>
+                        <action selector="addButtonPressed:" target="c22-O7-iKe" id="R6b-7S-67O"/>
+                    </connections>
+                </button>
             </subviews>
             <constraints>
                 <constraint firstItem="CSK-wQ-5Mv" firstAttribute="leading" secondItem="c22-O7-iKe" secondAttribute="leading" id="8vW-PQ-RqE"/>
+                <constraint firstAttribute="trailing" secondItem="Ci3-Qr-FLY" secondAttribute="trailing" constant="20" id="Hou-KG-rah"/>
                 <constraint firstAttribute="bottom" secondItem="CSK-wQ-5Mv" secondAttribute="bottom" constant="1" id="RS0-iT-VHV"/>
                 <constraint firstAttribute="trailing" secondItem="CSK-wQ-5Mv" secondAttribute="trailing" id="p5A-gG-2nY"/>
+                <constraint firstAttribute="centerY" secondItem="Ci3-Qr-FLY" secondAttribute="centerY" constant="-3" id="stj-xu-kQU"/>
             </constraints>
             <connections>
                 <outlet property="routeDropdown" destination="bD1-C7-uUM" id="Sq2-0y-2Na"/>

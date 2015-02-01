@@ -10,7 +10,6 @@
 #import "BusStatusView.h"
 #import "NSNib+Additions.h"
 #import "ServerHelper.h"
-#import "GRTInfoHelper.h"
 #import "PollPushManager.h"
 #import <PromiseKit/PromiseKit.h>
 
