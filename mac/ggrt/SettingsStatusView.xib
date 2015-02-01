@@ -51,7 +51,6 @@
             </constraints>
             <connections>
                 <outlet property="creditsLabel" destination="fDn-1K-mIh" id="i68-lg-Bt9"/>
-                <outlet property="quitButtonPressed" destination="LJB-qz-qdY" id="ib3-uI-cv6"/>
             </connections>
         </customView>
     </objects>

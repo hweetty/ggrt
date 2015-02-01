@@ -11,8 +11,12 @@
             <rect key="frame" x="0.0" y="0.0" width="229" height="55"/>
             <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
             <subviews>
-                <textField horizontalHuggingPriority="251" verticalHuggingPriority="750" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="wfy-j5-zEv">
-                    <rect key="frame" x="18" y="13" width="146" height="17"/>
+                <textField horizontalHuggingPriority="251" verticalHuggingPriority="750" translatesAutoresizingMaskIntoConstraints="NO" id="wfy-j5-zEv">
+                    <rect key="frame" x="18" y="13" width="164" height="17"/>
+                    <constraints>
+                        <constraint firstAttribute="width" relation="greaterThanOrEqual" constant="160" id="hj7-xd-moR"/>
+                        <constraint firstAttribute="height" constant="17" id="nO2-3z-Nao"/>
+                    </constraints>
                     <textFieldCell key="cell" scrollable="YES" lineBreakMode="clipping" sendsActionOnEndEditing="YES" title="Conestoga Mall Terminal" id="a9N-xC-iTL">
                         <font key="font" metaFont="cellTitle"/>
                         <color key="textColor" name="labelColor" catalog="System" colorSpace="catalog"/>
@@ -61,6 +65,8 @@
             </subviews>
             <constraints>
                 <constraint firstAttribute="centerY" secondItem="FQ4-Tg-LRH" secondAttribute="centerY" constant="1.5" id="7ot-Uc-Y1E"/>
+                <constraint firstItem="PEN-WL-Evp" firstAttribute="top" secondItem="wfy-j5-zEv" secondAttribute="bottom" constant="11" id="CoN-MN-FNY"/>
+                <constraint firstItem="FQ4-Tg-LRH" firstAttribute="leading" secondItem="wfy-j5-zEv" secondAttribute="trailing" constant="8" id="GNH-vW-cRx"/>
                 <constraint firstItem="dcq-pi-Dwe" firstAttribute="leading" secondItem="c22-O7-iKe" secondAttribute="leading" constant="7" id="Jos-5F-IHp"/>
                 <constraint firstAttribute="bottom" secondItem="PEN-WL-Evp" secondAttribute="bottom" constant="1" id="NIQ-GJ-3T7"/>
                 <constraint firstAttribute="trailing" secondItem="FQ4-Tg-LRH" secondAttribute="trailing" constant="20" id="alo-0D-h6J"/>
@@ -68,6 +74,7 @@
                 <constraint firstItem="PEN-WL-Evp" firstAttribute="leading" secondItem="c22-O7-iKe" secondAttribute="leading" id="jR4-WA-qVf"/>
                 <constraint firstAttribute="trailing" secondItem="PEN-WL-Evp" secondAttribute="trailing" id="mrF-Ah-pOi"/>
                 <constraint firstAttribute="trailing" secondItem="dcq-pi-Dwe" secondAttribute="trailing" constant="216" id="tMq-Cf-bp4"/>
+                <constraint firstItem="wfy-j5-zEv" firstAttribute="leading" secondItem="c22-O7-iKe" secondAttribute="leading" constant="20" id="xJg-gM-Tyr"/>
             </constraints>
             <connections>
                 <outlet property="defaultIconView" destination="dcq-pi-Dwe" id="xJI-tK-uLT"/>
@@ -77,7 +84,7 @@
                 <outlet property="separatorView" destination="PEN-WL-Evp" id="FAl-tb-txA"/>
                 <outlet property="timeRemainingLabel" destination="GDM-Dg-PSM" id="VJo-ym-4I0"/>
             </connections>
-            <point key="canvasLocation" x="308" y="256.5"/>
+            <point key="canvasLocation" x="307.5" y="256.5"/>
         </customView>
     </objects>
 </document>

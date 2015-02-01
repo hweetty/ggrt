@@ -44,7 +44,7 @@
 
 		[[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(quitAppButtonPressed) name:kQuitAppNotification object:nil];
 		
-		[[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(menuClosed) name:kTheMenuDidClosenNotification object:nil];
+//		[[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(menuClosed) name:kTheMenuDidClosenNotification object:nil];
 		
 		[[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(defaultChanged:) name:kDefaultBusRouteChangedNotification object:nil];
 		
@@ -62,34 +62,31 @@ static BOOL _route = NO;
 - (void)swapTitle {
 	[self performSelector:@selector(swapTitle) withObject:nil afterDelay:2];
 	
+	_route = !_route;
+	[self updateSwappingTitle];
+}
+- (void)updateSwappingTitle {
 	if (_defaultIndex == -1) {
 		[self setDefaultStatusTitle];
 	}
 	else {
-		_route = !_route;
-		
-		[self updateSwappingTitle];
-	}
-}
-- (void)updateSwappingTitle {
-	if (_route) {
-		[self.statusItem setTitle:[[_busRoutes objectAtIndex:_defaultIndex] objectForKey:@"routeId"]];
-	}
-	else {
-		if (_minutes == -1) {
-			[self.statusItem setTitle:@"?m"];
+		if (_route) {
+			[self.statusItem setTitle:[[_busRoutes objectAtIndex:_defaultIndex] objectForKey:@"routeId"]];
 		}
 		else {
-			[self.statusItem setTitle:[NSString stringWithFormat:@"%dm", _minutes]];
+			if (_minutes == -1) {
+				[self.statusItem setTitle:@"?m"];
+			}
+			else {
+				[self.statusItem setTitle:[NSString stringWithFormat:@"%dm", _minutes]];
+			}
 		}
 	}
 }
 
 - (void)minutesChanged:(NSNotification *)aNotif {
-	NSString *routeId = [[_busRoutes objectAtIndex:_defaultIndex] objectForKey:@"routeId"];
 	if (aNotif) {
 		_minutes = [[aNotif object] intValue];
-		routeId = [routeId stringByAppendingFormat:@"\n%dm", _minutes];
 	}
 	
 	_route = YES;
@@ -199,6 +196,9 @@ static BOOL _route = NO;
 	// Update default index?
 	if (_defaultIndex < i) {
 		_defaultIndex--;
+	}
+	else if (_defaultIndex == 0) {
+		_defaultIndex = -1;
 	}
 	
 	[_busRoutes removeObjectAtIndex:i];

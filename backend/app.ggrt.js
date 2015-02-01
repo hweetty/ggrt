@@ -65,13 +65,16 @@ app.get ("/v1/GetStopsForRoute", function (req, res) {
     }
 });
 
-function _getStopsForRouteInfo (routeId, stopId, res) {
+function _getStopsForRouteInfo (routeId, res) {
 	var url = BASE_URL + "Stop/GetByRouteId?routeId=" + routeId;
 	httpGet(url).then(function (data) {
+		data = "{\"stops\": " + data + "}";
 		console.log(data);
+		var json = JSON.parse(data);
+		console.log(json);
 		res.send ({
 			status: 200,
-			stops: data
+			stops: json.stops
 		});
 	})
 }

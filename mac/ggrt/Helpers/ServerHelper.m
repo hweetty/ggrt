@@ -72,6 +72,38 @@ static NSCache *_cache = nil;
 	return nil;
 }
 
++ (PMKPromise *)getStopsForRoute:(NSString *)routeId {
+	NSCache *cache = [self cache];
+	NSString *key = [routeId stringByAppendingString:@" stops"];
+	NSArray *stops = [cache objectForKey:key];
+	
+	if (stops && [stops count] > 0) {
+		return [PMKPromise promiseWithValue:stops];
+	}
+	
+	NSString *path = [kBaseURLPath stringByAppendingFormat:@"GetStopsForRoute?routeId=%@", routeId];
+	NSLog(@"hitting url: %@", path);
+	NSURLRequest *request = [[NSURLRequest alloc] initWithURL:[NSURL URLWithString:path]];
+	
+	return [NSURLConnection promise:request]
+	.then(^NSArray*(NSDictionary *dict) {
+		if ([dict isKindOfClass:[NSDictionary class]] && [dict[@"status"] intValue] == 200) {
+			NSLog(@"dict: %@", dict);
+			NSArray *arr = [dict objectForKey:@"stops"];
+			if ([arr isKindOfClass:[NSArray class]] && arr.count > 0) {
+				[cache setObject:arr forKey:key];
+				return arr;
+			}
+		}
+		
+		@throw @"error";
+	})
+	.catch(^NSArray *(id error) {
+		NSLog(@"error: %@", error);
+		return @[@"Error retrieving all routes"];
+	});
+}
+
 
 #pragma mark - Other
 

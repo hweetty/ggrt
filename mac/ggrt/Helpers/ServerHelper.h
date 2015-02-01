@@ -18,6 +18,7 @@
 
 + (PMKPromise *)getDescriptionForRouteId:(NSString *)routeId;
 
++ (PMKPromise *)getStopsForRoute:(NSString *)routeId;
 
 + (PMKPromise *)getLatestVersionNumber:(NSString *)currentVersion;
 

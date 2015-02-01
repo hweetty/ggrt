@@ -53,6 +53,7 @@
 	NSAssert(busData && busData[@"routeId"] && busData[@"stopId"], @"Not enough bus data info");
 	_busData = busData;
 	_view.routeLabel.stringValue = busData[@"routeId"];
+	_view.descriptionLabel.stringValue = busData[@"desc"]? busData[@"desc"]:@"";
 }
 
 

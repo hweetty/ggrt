@@ -50,19 +50,28 @@
 }
 
 - (void)updateStopDopdown {
-	
 	[self.stopDropBox removeAllItems];
+	
+	NSString *routeId = [_routes objectAtIndex:self.routeDropdown.indexOfSelectedItem];
+	[ServerHelper getStopsForRoute:routeId]
+	.then(^(NSArray *stops) {
+		_stops = stops;
+		for (NSDictionary *dict in stops) {
+			NSString *name = [NSString stringWithFormat:@"%@ %@", dict[@"StopId"], dict[@"Name"]];
+			[self.stopDropBox addItemWithObjectValue:name];
+		}
+	});
 }
 
 - (IBAction)addButtonPressed:(NSButton *)sender {
 	NSString *routeId = [_routes objectAtIndex:self.routeDropdown.indexOfSelectedItem];
-	NSString *stopId = [[_stops objectAtIndex:self.stopDropBox.indexOfSelectedItem] objectForKey:@"stopId"];
-	
-	stopId = @"1234";
+	NSString *stopId = [[_stops objectAtIndex:self.stopDropBox.indexOfSelectedItem] objectForKey:@"StopId"]; // Caps
+	NSString *desc = [[_stops objectAtIndex:self.stopDropBox.indexOfSelectedItem] objectForKey:@"Name"]; // Caps
 	
 	NSDictionary *dict = @{
 		@"routeId": routeId,
-		@"stopId":	stopId
+		@"stopId":	stopId,
+		@"desc": desc
 	};
 	[[NSNotificationCenter defaultCenter] postNotificationName:kReallyDidAddNewBusNotification object:dict];
 }
