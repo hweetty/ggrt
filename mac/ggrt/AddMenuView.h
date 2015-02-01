@@ -9,8 +9,12 @@
 #import <Cocoa/Cocoa.h>
 #import "SuperStatusView.h"
 
+@class MyComboBox;
+
 @interface AddMenuView : SuperStatusView<NSTextFieldDelegate>
 
-@property (weak) IBOutlet NSTextField *routeTextfield;
+@property (weak) IBOutlet MyComboBox *routeDropdown;
+@property (weak) IBOutlet MyComboBox *stopDropBox;
+
 
 @end

@@ -20,6 +20,7 @@
 		F14C28991A7DE60E00FE2937 /* AddMenuView.m in Sources */ = {isa = PBXBuildFile; fileRef = F14C28981A7DE60E00FE2937 /* AddMenuView.m */; };
 		F14C289B1A7DE61D00FE2937 /* AddMenuView.xib in Resources */ = {isa = PBXBuildFile; fileRef = F14C289A1A7DE61D00FE2937 /* AddMenuView.xib */; };
 		F14C28A01A7DE97700FE2937 /* SuperStatusView.m in Sources */ = {isa = PBXBuildFile; fileRef = F14C289F1A7DE97700FE2937 /* SuperStatusView.m */; };
+		F14C28A61A7DF91D00FE2937 /* MyComboBox.m in Sources */ = {isa = PBXBuildFile; fileRef = F14C28A51A7DF91D00FE2937 /* MyComboBox.m */; };
 		F1548CE31A7D2EF400286AE1 /* BusStatusItem.m in Sources */ = {isa = PBXBuildFile; fileRef = F1548CE21A7D2EF400286AE1 /* BusStatusItem.m */; };
 		F1548CE51A7D57C300286AE1 /* BusStatusView.xib in Resources */ = {isa = PBXBuildFile; fileRef = F1548CE41A7D57C300286AE1 /* BusStatusView.xib */; };
 		F1548CE81A7D643A00286AE1 /* BusStatusView.m in Sources */ = {isa = PBXBuildFile; fileRef = F1548CE71A7D643A00286AE1 /* BusStatusView.m */; };
@@ -67,6 +68,8 @@
 		F14C289A1A7DE61D00FE2937 /* AddMenuView.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = AddMenuView.xib; sourceTree = "<group>"; };
 		F14C289E1A7DE97700FE2937 /* SuperStatusView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SuperStatusView.h; sourceTree = "<group>"; };
 		F14C289F1A7DE97700FE2937 /* SuperStatusView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SuperStatusView.m; sourceTree = "<group>"; };
+		F14C28A41A7DF91D00FE2937 /* MyComboBox.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MyComboBox.h; sourceTree = "<group>"; };
+		F14C28A51A7DF91D00FE2937 /* MyComboBox.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MyComboBox.m; sourceTree = "<group>"; };
 		F1548CE11A7D2EF400286AE1 /* BusStatusItem.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BusStatusItem.h; sourceTree = "<group>"; };
 		F1548CE21A7D2EF400286AE1 /* BusStatusItem.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BusStatusItem.m; sourceTree = "<group>"; };
 		F1548CE41A7D57C300286AE1 /* BusStatusView.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = BusStatusView.xib; sourceTree = "<group>"; };
@@ -207,6 +210,8 @@
 				F19908191A7D267000928402 /* MainMenu.xib */,
 				F14C289E1A7DE97700FE2937 /* SuperStatusView.h */,
 				F14C289F1A7DE97700FE2937 /* SuperStatusView.m */,
+				F14C28A41A7DF91D00FE2937 /* MyComboBox.h */,
+				F14C28A51A7DF91D00FE2937 /* MyComboBox.m */,
 				F19908101A7D267000928402 /* Supporting Files */,
 			);
 			path = ggrt;
@@ -380,6 +385,7 @@
 				F14C28931A7DD36900FE2937 /* SettingsStatusView.m in Sources */,
 				F10E441C1A7D845D00204850 /* ServerHelper.m in Sources */,
 				F19908161A7D267000928402 /* main.m in Sources */,
+				F14C28A61A7DF91D00FE2937 /* MyComboBox.m in Sources */,
 				F14C28961A7DE60000FE2937 /* AddMenuItem.m in Sources */,
 				F14C28A01A7DE97700FE2937 /* SuperStatusView.m in Sources */,
 				F1548CE81A7D643A00286AE1 /* BusStatusView.m in Sources */,
