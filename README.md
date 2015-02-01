@@ -12,7 +12,7 @@
 
 
 ### Credits
-- [Jerry Yu](http://jerryyu.ca)
+- Jerry Yu
 - Elva Yang
 
 
