@@ -11,4 +11,9 @@
 - Add bus stops and have the ETA show up in your menu bar.
 
 
+### Credits
+- [Jerry Yu](http://jerryyu.ca)
+- Elva Yang
+
+
 *Developed during the Kik 2015 Hackathon*
