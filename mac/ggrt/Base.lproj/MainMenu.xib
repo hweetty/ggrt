@@ -18,6 +18,9 @@
         </customObject>
         <customObject id="YLy-65-1bz" customClass="NSFontManager"/>
         <menu id="A3B-b4-JWP">
+            <connections>
+                <outlet property="delegate" destination="-2" id="5eV-GN-Jsk"/>
+            </connections>
             <point key="canvasLocation" x="209" y="219.5"/>
         </menu>
     </objects>

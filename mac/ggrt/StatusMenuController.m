@@ -8,6 +8,7 @@
 
 #import "StatusMenuController.h"
 #import "BusStatusItem.h"
+#import "SettingsStatusItem.h"
 #import "PollPushManager.h"
 
 static NSString *const kBusRoutesKey = @"kBusRoutesKey";
@@ -33,6 +34,14 @@ static NSString *const kBusRoutesKey = @"kBusRoutesKey";
 		
 		[self loadDefaults];
 		[PollPushManager updateNow];
+		
+		SettingsStatusItem *settings = [[SettingsStatusItem alloc] init];
+		[self.theMenu addItem:settings];
+		
+		// Notifications
+		[[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(addButtonPressed) name:kAddNewBusNotification object:nil];
+
+		[[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(quitAppButtonPressed) name:kQuitAppNotification object:nil];
 	}
 	
 	return self;
@@ -64,6 +73,23 @@ static NSString *const kBusRoutesKey = @"kBusRoutesKey";
 		BusStatusItem *item = [[BusStatusItem alloc] initWithDictionary:dict];
 		[self.theMenu addItem:item];
 	}
+}
+
+- (void)save {
+	NSLog(@"saving");
+}
+
+
+#pragma mark - Settings Delegate
+
+- (void)addButtonPressed {
+	NSLog(@"creating new ");
+}
+
+- (void)quitAppButtonPressed {
+	NSLog(@"quiting ");
+	[self save];
+	[[NSApplication sharedApplication] terminate:self];
 }
 
 @end

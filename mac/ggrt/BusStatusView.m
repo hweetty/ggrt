@@ -8,13 +8,6 @@
 
 #import "BusStatusView.h"
 
-#define MONO(amt) [NSColor colorWithDeviceWhite:amt alpha:1]
-
-#define MONO_ALPHA(amt, alp) [NSColor colorWithDeviceWhite:amt alpha:alp]
-
-#define COLOUR(r, g, b) [NSColor colorWithDeviceRed:r/255.0f green:g/255.0f blue:b/255.0f alpha:1]
-
-
 @implementation BusStatusView
 
 static BOOL _isDarkStatusBar = NO;
@@ -25,16 +18,24 @@ static BOOL _isDarkStatusBar = NO;
 }
 
 - (void)awakeFromNib {
+	self.autoresizingMask = NSViewWidthSizable;
+	
+	[[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(style) name:kTheMenuWillOpenNotification object:nil];
+	
 	[self style];
+}
+
+- (void)dealloc {
+	[[NSNotificationCenter defaultCenter] removeObserver:self];
 }
 
 - (void)setMinutesRemaining:(int)mins {
 	_minutesRemaining = mins;
 	
-	NSString *str = [NSString stringWithFormat:@"%d min%@", mins, (mins>0?@"s":@"")];
+	NSString *str = [NSString stringWithFormat:@"%d min%@", mins, (mins!=1?@"s":@"")];
 	
 	NSRange range = [str rangeOfString:@" min"];
-	if (mins > 0) {
+	if (mins != 1) {
 		range.length++;
 	}
 	
@@ -52,6 +53,9 @@ static BOOL _isDarkStatusBar = NO;
 - (void)style {
 	[BusStatusView determineStatusBarColour];
 	
+	// Style the MinutesRemaining label
+	self.minutesRemaining = _minutesRemaining;
+	
 	self.descriptionLabel.textColor = [self descriptionTextColor];
 	
 	self.separatorView.wantsLayer = YES;
@@ -63,7 +67,7 @@ static BOOL _isDarkStatusBar = NO;
 		return [MONO(0.6) CGColor];
 	}
 	
-	return [MONO(0.4) CGColor];
+	return [MONO(0.7) CGColor];
 }
 
 - (NSColor *)timeRemainingTextColour {

@@ -9,6 +9,19 @@
 #ifndef ggrt_ggrt_pch
 #define ggrt_ggrt_pch
 
+// NOTIFICATIONS ==========================================
+#define kAddNewBusNotification @"kAddNewBusNotification"
+#define kQuitAppNotification @"kQuitAppNotification"
+#define kTheMenuWillOpenNotification @"kTheMenuWillOpen"
+// NOTIFICATIONS ==========================================
+
+// COLOURS ==========================================
+#define MONO(amt) [NSColor colorWithDeviceWhite:amt alpha:1]
+#define MONO_ALPHA(amt, alp) [NSColor colorWithDeviceWhite:amt alpha:alp]
+#define COLOUR(r, g, b) [NSColor colorWithDeviceRed:r/255.0f green:g/255.0f blue:b/255.0f alpha:1]
+// COLOURS ==========================================
+
+
 #define DEBUG
 
 #endif

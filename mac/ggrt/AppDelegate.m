@@ -10,7 +10,9 @@
 #import "StatusMenuController.h"
 #import "PollPushManager.h"
 
-@interface AppDelegate ()
+@interface AppDelegate () {
+	StatusMenuController *_controller;
+}
 
 @end
 
@@ -19,10 +21,15 @@
 - (void)applicationDidFinishLaunching:(NSNotification *)aNotification {
 	self.statusItem = [[NSStatusBar systemStatusBar] statusItemWithLength:NSVariableStatusItemLength];
 	[self.statusItem setMenu:self.statusMenu];
+	[self.statusMenu setDelegate:self];
 	
-	[[StatusMenuController alloc] initWithMenu:self.statusMenu item:self.statusItem];
+	_controller = [[StatusMenuController alloc] initWithMenu:self.statusMenu item:self.statusItem];
 	
 	[PollPushManager start];
+}
+
+- (void)menuWillOpen:(NSMenu *)menu {
+	[[NSNotificationCenter defaultCenter] postNotificationName:kTheMenuWillOpenNotification object:nil];
 }
 
 - (void)applicationWillTerminate:(NSNotification *)aNotification {
