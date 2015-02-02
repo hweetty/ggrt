@@ -6,7 +6,7 @@
 
 ## Just glance up
 
-![Preview](https://www.dropbox.com/s/rz1fw6tn5sedgpc/ggrt-preview.png?dl=1)
+![Preview](https://www.dropbox.com/s/gch7zix85tqxlyf/ggrt-preview.png?dl=1)
 
 - Add bus stops and have the ETA show up in your menu bar.
 
