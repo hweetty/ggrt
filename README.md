@@ -8,8 +8,8 @@
 
 ![Preview](preview.png)
 
+## Features
 - Add bus routes and have their ETA show up in your menu bar.
-
 
 ## Install from source
 1. Download Xcode
