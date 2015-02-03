@@ -6,7 +6,7 @@
 
 #### Just glance up
 
-![Preview](https://www.dropbox.com/s/gch7zix85tqxlyf/ggrt-preview.png?dl=1)
+![Preview](preview.png)
 
 - Add bus routes and have their ETA show up in your menu bar.
 
@@ -25,4 +25,4 @@
 - Elva Yang
 
 
-*Won Top Ten Hacks at the Kik 2015 Hackathon*
+*One of the top 10 hacks at the Kik 2015 Hackathon*
