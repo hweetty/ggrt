@@ -12,10 +12,13 @@
 #define kGGRTAppVersionNumber @"0.6"
 
 // NOTIFICATIONS ==========================================
-#define kAddButtonPressedNotification @"kAddNewBusNotification"
 #define kQuitAppNotification @"kQuitAppNotification"
+#define kNewVersionAvailableNotification @"kNewVersionAvailableNotification"
+
+#define kAddButtonPressedNotification @"kAddNewBusNotification"
 #define kReallyDidAddNewBusNotification @"kReallyDidAddNewBusNotification"
 #define kDeletedBusNotification @"kDeletedBusNotification"
+
 #define kTheMenuWillOpenNotification @"kTheMenuWillOpen"
 #define kTheMenuDidClosenNotification @"kTheMenuDidClosenNotification"
 
@@ -28,6 +31,9 @@
 #define MONO_ALPHA(amt, alp) [NSColor colorWithDeviceWhite:amt alpha:alp]
 #define COLOUR(r, g, b) [NSColor colorWithDeviceRed:r/255.0f green:g/255.0f blue:b/255.0f alpha:1]
 // COLOURS ==========================================
+
+
+#define GGRT_DEBUG
 
 #ifdef GGRT_DEBUG
 #define kBaseURLPath @"http://localhost:1729/v1/"

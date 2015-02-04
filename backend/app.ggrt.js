@@ -78,7 +78,8 @@ function _getStopsForRouteInfo (routeId, res) {
 app.get ("/v1/latestVersion", function (req, res) {
     res.send ({
     	status: 200,
-    	latestVersion: "0.6"
+    	latestVersion: "0.7",
+    	url: "http://ggrt.ca"
     })
 });
 

@@ -12,6 +12,8 @@
 
 @interface ServerHelper : NSObject
 
++ (void)checkForUpdates:(BOOL)delay;
+
 + (PMKPromise *)getInfoForRoute:(NSString *)routeId stop:(NSString *)stopId;
 
 + (PMKPromise *)getAllRoutes;

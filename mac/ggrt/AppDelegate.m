@@ -20,22 +20,14 @@
 @implementation AppDelegate
 
 - (void)applicationDidFinishLaunching:(NSNotification *)aNotification {
-	self.statusItem = [[NSStatusBar systemStatusBar] statusItemWithLength:88];
+	self.statusItem = [[NSStatusBar systemStatusBar] statusItemWithLength:68];
 	[self.statusItem setMenu:self.statusMenu];
 	[self.statusMenu setDelegate:self];
 	
 	_controller = [[StatusMenuController alloc] initWithMenu:self.statusMenu item:self.statusItem];
 	
 	[PollPushManager start];
-	
-	[ServerHelper getLatestVersionNumber:kGGRTAppVersionNumber]
-	.then(^(NSDictionary *dict) {
-		NSLog(@"dict    : %@", dict);
-		if ([dict isKindOfClass:[NSDictionary class]] && ![dict[@"latestVersion"] isEqualToString:kGGRTAppVersionNumber])
-		{
-			NSLog(@"new version %@ available", dict[@"latestVersion"]);
-		}
-	});
+	[ServerHelper checkForUpdates:YES];
 }
 
 - (void)menuWillOpen:(NSMenu *)menu {

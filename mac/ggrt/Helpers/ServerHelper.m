@@ -28,6 +28,18 @@ static NSCache *_cache = nil;
 	return nil;
 }
 
++ (void)checkForUpdates:(BOOL)delay {
+	dispatch_after(dispatch_time(DISPATCH_TIME_NOW, 2*1 * NSEC_PER_SEC), dispatch_get_main_queue(), ^{
+		[ServerHelper getLatestVersionNumber:kGGRTAppVersionNumber]
+		.then(^(NSDictionary *dict) {
+			NSLog(@"dict    : %@", dict);
+			if ([dict isKindOfClass:[NSDictionary class]] && ![dict[@"latestVersion"] isEqualToString:kGGRTAppVersionNumber])
+			{
+				[[NSNotificationCenter defaultCenter] postNotificationName:kNewVersionAvailableNotification object:dict];
+			}
+		});
+	});
+}
 
 #pragma mark - GRT Info
 

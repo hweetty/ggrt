@@ -63,7 +63,6 @@
 	[ServerHelper getInfoForRoute:self.routeId stop:self.stopId]
 	.then(^(NSDictionary *dict) {
 		if ([dict isKindOfClass:[NSDictionary class]]) {
-			NSLog(@"dict: %@", dict);
 			if (dict[@"Minutes"]) {
 				_view.minutesRemaining = [dict[@"Minutes"] intValue];
 			}

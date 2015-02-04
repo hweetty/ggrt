@@ -20,15 +20,20 @@ static BOOL _isDarkStatusBar = NO;
 - (void)awakeFromNib {
 	self.autoresizingMask = NSViewWidthSizable;
 	
-	self.creditsLabel.stringValue = @"© 2015 Jerry Yu\nIcon: Elva Yang";
+	self.creditsLabel.stringValue = [@"GGrt " stringByAppendingFormat:@"v%@", kGGRTAppVersionNumber];
 	
 	[[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(style) name:kTheMenuWillOpenNotification object:nil];
-	
+	[[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(newVersionAvailable:) name:kNewVersionAvailableNotification object:nil];
 	[self style];
 }
 
 - (void)dealloc {
 	[[NSNotificationCenter defaultCenter] removeObserver:self];
+}
+
+- (void)newVersionAvailable:(NSNotification *)aNotif {
+	NSDictionary *dict = [aNotif object];
+	NSURL *url = [NSURL URLWithString:dict[@"url"]];
 }
 
 - (IBAction)addButtonPressed:(NSButton *)sender {
@@ -50,10 +55,10 @@ static BOOL _isDarkStatusBar = NO;
 
 - (NSColor *)creditsTextcolour {
 	if (_isDarkStatusBar) {
-		return MONO(0.7);
+		return MONO(0.8);
 	}
 	
-	return MONO(0.6);
+	return MONO(0.5);
 }
 
 @end
