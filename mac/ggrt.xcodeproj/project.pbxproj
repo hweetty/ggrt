@@ -45,6 +45,7 @@
 		663CF93F6E9DDFCCBDEB88DC /* Pods.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = Pods.debug.xcconfig; path = "Pods/Target Support Files/Pods/Pods.debug.xcconfig"; sourceTree = "<group>"; };
 		6CE0F1292D1E3B0F3F914C5E /* libPods.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = libPods.a; sourceTree = BUILT_PRODUCTS_DIR; };
 		72D5E132DDF6BE96D80F1075 /* Pods.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = Pods.release.xcconfig; path = "Pods/Target Support Files/Pods/Pods.release.xcconfig"; sourceTree = "<group>"; };
+		F10273081A8D9A3000B08EA2 /* ggrt.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.xml; path = ggrt.entitlements; sourceTree = "<group>"; };
 		F10E44161A7D842D00204850 /* StatusMenuController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = StatusMenuController.h; sourceTree = "<group>"; };
 		F10E44171A7D842D00204850 /* StatusMenuController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = StatusMenuController.m; sourceTree = "<group>"; };
 		F10E441A1A7D845D00204850 /* ServerHelper.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = ServerHelper.h; path = Helpers/ServerHelper.h; sourceTree = "<group>"; };
@@ -195,6 +196,7 @@
 		F199080F1A7D267000928402 /* ggrt */ = {
 			isa = PBXGroup;
 			children = (
+				F10273081A8D9A3000B08EA2 /* ggrt.entitlements */,
 				F10E44281A7D9A0A00204850 /* ggrt.pch */,
 				F19908171A7D267000928402 /* Images.xcassets */,
 				F19908191A7D267000928402 /* MainMenu.xib */,

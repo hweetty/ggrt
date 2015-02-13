@@ -19,6 +19,6 @@ DerivedData
 
 *.xcworkspacedata
 
+# Custom
 node_modules
-
 mac/Pods/*
