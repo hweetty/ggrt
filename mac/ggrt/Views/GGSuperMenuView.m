@@ -10,6 +10,24 @@
 
 @implementation GGSuperMenuView
 
+- (void)awakeFromNib {
+	[super awakeFromNib];
+	[self determineStatusBarColour];
+}
+
+- (void)determineStatusBarColour {
+	// http://stackoverflow.com/a/24659148
+
+	NSAppearance *app = [NSAppearance currentAppearance];
+	if ([app respondsToSelector:@selector(name)] &&
+		[[app name] rangeOfString:@"NSAppearanceNameVibrantDark"].length > 0) {
+		_isDarkAppearance = YES;
+	}
+	else {
+		_isDarkAppearance = NO;
+	}
+}
+
 - (CGColorRef)separatorColor {
 	if (_isDarkAppearance) {
 		return [MONO(0.6) CGColor];

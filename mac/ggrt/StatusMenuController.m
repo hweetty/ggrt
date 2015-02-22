@@ -9,9 +9,7 @@
 #import "StatusMenuController.h"
 #import "GGSuperMenu.h"
 #import "BusStatusView.h"
-
-#import "SettingsStatusItem.h"
-#import "AddMenuItem.h"
+#import "SettingsStatusView.h"
 #import "PollPushManager.h"
 
 #define kBusRoutesKey @"kBusRoutesKey"
@@ -30,31 +28,15 @@
 		[statusItem setImage:[NSImage imageNamed:@"bus"]];
 		[statusItem setAlternateImage:[NSImage imageNamed:@"bus"]];
 		
-		_isAdding = NO;
 		[self loadRoutes];
-//		[self loadDefault];
 		[PollPushManager updateNow];
 		
-		SettingsStatusItem *settings = [[SettingsStatusItem alloc] init];
-		[self.theMenu addItem:settings];
-		
-		// Notifications
-		[[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(addButtonPressed) name:kAddButtonPressedNotification object:nil];
-		
-		[[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(addNewCell:) name:kReallyDidAddNewBusNotification object:nil];
-		
-		[[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(deleteCell:) name:kDeletedBusNotification object:nil];
+		GGSuperMenu *item = [[GGSuperMenu alloc] initWithNibViewClass:[SettingsStatusView class]];
+		[self.theMenu addItem:item];
 
 		[[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(quitAppButtonPressed) name:kQuitAppNotification object:nil];
-		
-//		[[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(menuClosed) name:kTheMenuDidClosenNotification object:nil];
-		
-		[[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(defaultChanged:) name:kDefaultBusRouteChangedNotification object:nil];
-		
-		[[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(minutesChanged:) name:kUpdateDefaultBusMinutesLeftNotification object:nil];
-		
+
 		_minutes = -1;
-//		[self swapTitle];
 	}
 	
 	return self;
@@ -70,7 +52,7 @@ static BOOL _route = NO;
 }
 - (void)updateSwappingTitle {
 	if (_defaultIndex == -1) {
-		[self setDefaultStatusTitle];
+//		[self setDefaultStatusTitle];
 	}
 	else {
 		if (_route) {
@@ -85,36 +67,6 @@ static BOOL _route = NO;
 			}
 		}
 	}
-}
-
-- (void)minutesChanged:(NSNotification *)aNotif {
-	if (aNotif) {
-		_minutes = [[aNotif object] intValue];
-	}
-	
-	_route = YES;
-	[self updateSwappingTitle];
-}
-
-- (void)setDefaultStatusTitle {
-	[self.statusItem setTitle:@"GGRT"];
-}
-
-- (void)loadDefault {
-	NSAssert (_busRoutes, @"must load routes first");
-	_defaultIndex = [[[NSUserDefaults standardUserDefaults] objectForKey:kDefaultRouteIndexKey] intValue];
-	
-	if (_busRoutes.count == 0) {
-		_defaultIndex = -1;
-		[self setDefaultStatusTitle];
-	}
-	
-	if (_defaultIndex >= 0) {
-//		BusStatusItem *item = (BusStatusItem *)[self.theMenu itemAtIndex:_defaultIndex];
-//		[(BusStatusView *)item.view setIsDefault:YES];
-	}
-	
-	[self minutesChanged:nil];
 }
 
 - (void)loadRoutes {
@@ -132,8 +84,6 @@ static BOOL _route = NO;
 	
 	[self.theMenu removeAllItems];
 	for (NSDictionary *dict in _busRoutes) {
-//		BusStatusItem *item = [[BusStatusItem alloc] initWithDictionary:dict];
-//		BusStatusView
 		GGSuperMenu *item = [[GGSuperMenu alloc] initWithNibViewClass:[BusStatusView class]];
 		[(BusStatusView *)item.view setDictionary:dict];
 		[self.theMenu addItem:item];
@@ -148,86 +98,8 @@ static BOOL _route = NO;
 
 #pragma mark - Notifications
 
-- (void)defaultChanged:(NSNotification *)aNotif {
-	// Set previous
-//	if (_defaultIndex >= 0 && _defaultIndex < _busRoutes.count) {
-//		BusStatusItem *item = (BusStatusItem *)[self.theMenu itemAtIndex:_defaultIndex];
-//		[(BusStatusView *)item.view setIsDefault:NO];
-//	}
-//	
-//	BusStatusItem *item = [aNotif object];
-//	if (item) {
-//		[(BusStatusView *)item.view setIsDefault:YES];
-//		_defaultIndex = [self.theMenu indexOfItem:item];
-//	}
-//	else {
-//		_defaultIndex = -1;
-//		[self setDefaultStatusTitle];
-//	}
-
-	[self minutesChanged:nil];
-	[self save];
-}
-
-- (void)insertItemBelowSettings:(NSMenuItem *)item {
-	NSUInteger numItems = self.theMenu.numberOfItems;
-	NSAssert(numItems > 0, @"There should be at least the settings view");
-	[self.theMenu insertItem:item atIndex:numItems-1];
-}
-
-- (void)addButtonPressed {
-	if (_isAdding)	return;
-	_isAdding = YES;
-	
-	AddMenuItem *item = [[AddMenuItem alloc] init];
-	[self insertItemBelowSettings:item];
-}
-
-- (void)addNewCell:(NSNotification *)aNotification {
-	if (_isAdding == NO)	return;
-	[self menuClosed]; // Remove the AddMenuItem
-	
-	// Insert new item
-	NSDictionary *dict = [aNotification object];
-	[_busRoutes addObject:dict];
-	[self save];
-	
-//	BusStatusItem *item = [[BusStatusItem alloc] initWithDictionary:dict];
-//	[self insertItemBelowSettings:item];
-}
-
-- (void)deleteCell:(NSNotification *)aNotification {
-	NSAssert(self.theMenu.numberOfItems > 1, @"There should be at least one bus cell");
-	
-	BusStatusItem *item = [aNotification object];
-	NSUInteger i = [self.theMenu indexOfItem:item];
-	NSAssert(i >= 0 && i < _busRoutes.count, @"Invalid range of item");
-	
-	// Update default index?
-	if (_defaultIndex < i) {
-		_defaultIndex--;
-	}
-	else if (_defaultIndex == 0) {
-		_defaultIndex = -1;
-	}
-	
-	[_busRoutes removeObjectAtIndex:i];
-	[self.theMenu removeItemAtIndex:i];
-	[self save];
-}
-
 - (void)quitAppButtonPressed {
 	[[NSApplication sharedApplication] terminate:self];
 }
-
-- (void)menuClosed {
-	if (_isAdding == NO)	return;
-	_isAdding = NO;
-	
-	NSUInteger numItems = self.theMenu.numberOfItems;
-	NSAssert(numItems >= 2, @"Should be at least two items");
-	[self.theMenu removeItemAtIndex:numItems - 2];
-}
-
 
 @end

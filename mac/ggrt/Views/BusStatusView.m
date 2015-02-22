@@ -33,39 +33,7 @@
 //	self.routeLabel.stringValue
 }
 
-- (void)mouseUp:(NSEvent *)theEvent {
-	NSLog(@"up");
-	if (self.isDefault) {
-		[[NSNotificationCenter defaultCenter] postNotificationName:kDefaultBusRouteChangedNotification object:nil];
-	}
-	else {
-		[[NSNotificationCenter defaultCenter] postNotificationName:kDefaultBusRouteChangedNotification object:self.delegate];
-	}
-}
-
-
-#pragma mark - UI Interactions
-
-- (void)mouseEntered:(NSEvent *)theEvent {
-	self.defaultIconView.hover = YES;
-	[self.defaultIconView setNeedsDisplay:YES];
-}
-
-- (void)mouseExited:(NSEvent *)theEvent {	
-	self.defaultIconView.hover = NO;
-	[self.defaultIconView setNeedsDisplay:YES];
-}
-
-- (void)setIsDefault:(BOOL)isDefault {
-	_isDefault = isDefault;
-	self.defaultIconView.isDefault = isDefault;
-	[self.defaultIconView setNeedsDisplay:YES];
-	[self updateController];
-}
-
-- (void)setMinutesRemaining:(int)mins {
-	_minutesRemaining = mins;
-	
+- (void)setMinutesRemaining:(int)mins secondary:(int)smins {
 	NSString *str = [NSString stringWithFormat:@"%d min%@", mins, (mins!=1?@"s":@"")];
 	
 	NSRange range = [str rangeOfString:@" min"];
@@ -77,16 +45,18 @@
 	[as addAttribute:NSFontAttributeName value:[NSFont systemFontOfSize:10] range:range];
 	[as addAttribute:NSForegroundColorAttributeName value:[self defaultTextColor] range:range];
 	
-	self.timeRemainingLabel.textColor = [self timeRemainingTextColour];
+	self.timeRemainingLabel.textColor = [self timeRemainingTextColour:mins];
 	self.timeRemainingLabel.attributedStringValue = as;
-	
-	[self updateController];
+
+	// Secondary
+	self.secondTimeRemainingLabel.stringValue = [NSString stringWithFormat:@"%d min%@", smins, (smins!=1?@"s":@"")];
 }
 
-- (void)updateController {
-	if (self.isDefault) {
-		[[NSNotificationCenter defaultCenter] postNotificationName:kUpdateDefaultBusMinutesLeftNotification object:[NSNumber numberWithInt:self.minutesRemaining]];
-	}
+
+#pragma mark - UI Interactions
+
+- (void)mouseUp:(NSEvent *)theEvent {
+	NSLog(@"up");
 }
 
 - (void)mouseDown:(NSEvent *)theEvent {
@@ -94,23 +64,20 @@
 }
 
 
-#pragma mark - Override
+#pragma mark - Styles
 
 - (void)style {
 	[super style];
-	
-	// Style the MinutesRemaining label
-	self.minutesRemaining = _minutesRemaining;
-	
+
 //	self.descriptionLabel.textColor = [self descriptionTextColor];
 }
 
-- (NSColor *)timeRemainingTextColour {
+- (NSColor *)timeRemainingTextColour:(int)mins {
 	if (self.isDarkAppearance) {
-		if (_minutesRemaining > 10) {
+		if (mins > 10) {
 			return COLOUR(0, 255, 0);
 		}
-		else if (_minutesRemaining > 5) {
+		else if (mins > 5) {
 			return COLOUR(255, 176, 22);
 		}
 		else {
@@ -118,20 +85,16 @@
 		}
 	}
 	else {
-		if (_minutesRemaining > 10) {
+		if (mins > 10) {
 			return COLOUR(0, 175, 0);
 		}
-		else if (_minutesRemaining > 5) {
+		else if (mins > 5) {
 			return COLOUR(245, 100, 0);
 		}
 		else {
 			return COLOUR(255, 32, 0);
 		}
 	}
-}
-
-- (IBAction)deleteButtonPressed:(NSButton *)sender {
-	[[NSNotificationCenter defaultCenter] postNotificationName:kDeletedBusNotification object:self.delegate];
 }
 
 @end

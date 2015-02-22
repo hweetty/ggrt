@@ -12,21 +12,14 @@
 		F10E441C1A7D845D00204850 /* ServerHelper.m in Sources */ = {isa = PBXBuildFile; fileRef = F10E441B1A7D845D00204850 /* ServerHelper.m */; };
 		F10E441F1A7D847F00204850 /* PollPushManager.m in Sources */ = {isa = PBXBuildFile; fileRef = F10E441E1A7D847F00204850 /* PollPushManager.m */; };
 		F10E44231A7D877500204850 /* NSNib+Additions.m in Sources */ = {isa = PBXBuildFile; fileRef = F10E44221A7D877500204850 /* NSNib+Additions.m */; };
-		F113881B1A8FEDAB00A13A0E /* GGMapView.m in Sources */ = {isa = PBXBuildFile; fileRef = F113881A1A8FEDAB00A13A0E /* GGMapView.m */; };
-		F11388221A910DB200A13A0E /* GGSuperMenu.m in Sources */ = {isa = PBXBuildFile; fileRef = F11388211A910DB200A13A0E /* GGSuperMenu.m */; };
-		F14C288D1A7DD2FE00FE2937 /* SettingsStatusView.xib in Resources */ = {isa = PBXBuildFile; fileRef = F14C288C1A7DD2FE00FE2937 /* SettingsStatusView.xib */; };
-		F14C28901A7DD34C00FE2937 /* SettingsStatusItem.m in Sources */ = {isa = PBXBuildFile; fileRef = F14C288F1A7DD34C00FE2937 /* SettingsStatusItem.m */; };
-		F14C28931A7DD36900FE2937 /* SettingsStatusView.m in Sources */ = {isa = PBXBuildFile; fileRef = F14C28921A7DD36900FE2937 /* SettingsStatusView.m */; };
-		F14C28961A7DE60000FE2937 /* AddMenuItem.m in Sources */ = {isa = PBXBuildFile; fileRef = F14C28951A7DE60000FE2937 /* AddMenuItem.m */; };
-		F14C28991A7DE60E00FE2937 /* AddMenuView.m in Sources */ = {isa = PBXBuildFile; fileRef = F14C28981A7DE60E00FE2937 /* AddMenuView.m */; };
-		F14C289B1A7DE61D00FE2937 /* AddMenuView.xib in Resources */ = {isa = PBXBuildFile; fileRef = F14C289A1A7DE61D00FE2937 /* AddMenuView.xib */; };
-		F14C28A01A7DE97700FE2937 /* SuperStatusView.m in Sources */ = {isa = PBXBuildFile; fileRef = F14C289F1A7DE97700FE2937 /* SuperStatusView.m */; };
-		F14C28A61A7DF91D00FE2937 /* MyComboBox.m in Sources */ = {isa = PBXBuildFile; fileRef = F14C28A51A7DF91D00FE2937 /* MyComboBox.m */; };
 		F14C28A91A7E4BB300FE2937 /* DefaultIconView.m in Sources */ = {isa = PBXBuildFile; fileRef = F14C28A81A7E4BB300FE2937 /* DefaultIconView.m */; };
-		F1548CE31A7D2EF400286AE1 /* BusStatusItem.m in Sources */ = {isa = PBXBuildFile; fileRef = F1548CE21A7D2EF400286AE1 /* BusStatusItem.m */; };
-		F1548CE51A7D57C300286AE1 /* BusStatusView.xib in Resources */ = {isa = PBXBuildFile; fileRef = F1548CE41A7D57C300286AE1 /* BusStatusView.xib */; };
-		F1548CE81A7D643A00286AE1 /* BusStatusView.m in Sources */ = {isa = PBXBuildFile; fileRef = F1548CE71A7D643A00286AE1 /* BusStatusView.m */; };
+		F172E1871A9A7158005381D0 /* GGSuperMenu.m in Sources */ = {isa = PBXBuildFile; fileRef = F172E1861A9A7158005381D0 /* GGSuperMenu.m */; };
 		F17F84DE1A9A5AF200E00ABE /* GGSuperMenuView.m in Sources */ = {isa = PBXBuildFile; fileRef = F17F84DD1A9A5AF200E00ABE /* GGSuperMenuView.m */; };
+		F17F84E21A9A697200E00ABE /* BusStatusView.m in Sources */ = {isa = PBXBuildFile; fileRef = F17F84E01A9A697200E00ABE /* BusStatusView.m */; };
+		F17F84E31A9A697200E00ABE /* BusStatusView.xib in Resources */ = {isa = PBXBuildFile; fileRef = F17F84E11A9A697200E00ABE /* BusStatusView.xib */; };
+		F17F84E61A9A697A00E00ABE /* GGMapView.m in Sources */ = {isa = PBXBuildFile; fileRef = F17F84E51A9A697A00E00ABE /* GGMapView.m */; };
+		F17F84EA1A9A69AB00E00ABE /* SettingsStatusView.m in Sources */ = {isa = PBXBuildFile; fileRef = F17F84E81A9A69AB00E00ABE /* SettingsStatusView.m */; };
+		F17F84EB1A9A69AB00E00ABE /* SettingsStatusView.xib in Resources */ = {isa = PBXBuildFile; fileRef = F17F84E91A9A69AB00E00ABE /* SettingsStatusView.xib */; };
 		F19908141A7D267000928402 /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = F19908131A7D267000928402 /* AppDelegate.m */; };
 		F19908161A7D267000928402 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = F19908151A7D267000928402 /* main.m */; };
 		F19908181A7D267000928402 /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = F19908171A7D267000928402 /* Images.xcassets */; };
@@ -58,33 +51,20 @@
 		F10E44211A7D877500204850 /* NSNib+Additions.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = "NSNib+Additions.h"; path = "Helpers/NSNib+Additions.h"; sourceTree = "<group>"; };
 		F10E44221A7D877500204850 /* NSNib+Additions.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = "NSNib+Additions.m"; path = "Helpers/NSNib+Additions.m"; sourceTree = "<group>"; };
 		F10E44281A7D9A0A00204850 /* ggrt.pch */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ggrt.pch; sourceTree = SOURCE_ROOT; };
-		F11388191A8FEDAB00A13A0E /* GGMapView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = GGMapView.h; path = Helpers/GGMapView.h; sourceTree = "<group>"; };
-		F113881A1A8FEDAB00A13A0E /* GGMapView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = GGMapView.m; path = Helpers/GGMapView.m; sourceTree = "<group>"; };
-		F11388201A910DB200A13A0E /* GGSuperMenu.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = GGSuperMenu.h; path = Views/GGSuperMenu.h; sourceTree = "<group>"; };
-		F11388211A910DB200A13A0E /* GGSuperMenu.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = GGSuperMenu.m; path = Views/GGSuperMenu.m; sourceTree = "<group>"; };
-		F14C288C1A7DD2FE00FE2937 /* SettingsStatusView.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = SettingsStatusView.xib; sourceTree = "<group>"; };
-		F14C288E1A7DD34C00FE2937 /* SettingsStatusItem.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SettingsStatusItem.h; sourceTree = "<group>"; };
-		F14C288F1A7DD34C00FE2937 /* SettingsStatusItem.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SettingsStatusItem.m; sourceTree = "<group>"; };
-		F14C28911A7DD36900FE2937 /* SettingsStatusView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SettingsStatusView.h; sourceTree = "<group>"; };
-		F14C28921A7DD36900FE2937 /* SettingsStatusView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SettingsStatusView.m; sourceTree = "<group>"; };
-		F14C28941A7DE60000FE2937 /* AddMenuItem.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AddMenuItem.h; sourceTree = "<group>"; };
-		F14C28951A7DE60000FE2937 /* AddMenuItem.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AddMenuItem.m; sourceTree = "<group>"; };
-		F14C28971A7DE60E00FE2937 /* AddMenuView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AddMenuView.h; sourceTree = "<group>"; };
-		F14C28981A7DE60E00FE2937 /* AddMenuView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AddMenuView.m; sourceTree = "<group>"; };
-		F14C289A1A7DE61D00FE2937 /* AddMenuView.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = AddMenuView.xib; sourceTree = "<group>"; };
-		F14C289E1A7DE97700FE2937 /* SuperStatusView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SuperStatusView.h; sourceTree = "<group>"; };
-		F14C289F1A7DE97700FE2937 /* SuperStatusView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SuperStatusView.m; sourceTree = "<group>"; };
-		F14C28A41A7DF91D00FE2937 /* MyComboBox.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MyComboBox.h; sourceTree = "<group>"; };
-		F14C28A51A7DF91D00FE2937 /* MyComboBox.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MyComboBox.m; sourceTree = "<group>"; };
 		F14C28A71A7E4BB300FE2937 /* DefaultIconView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DefaultIconView.h; sourceTree = "<group>"; };
 		F14C28A81A7E4BB300FE2937 /* DefaultIconView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DefaultIconView.m; sourceTree = "<group>"; };
-		F1548CE11A7D2EF400286AE1 /* BusStatusItem.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BusStatusItem.h; sourceTree = "<group>"; };
-		F1548CE21A7D2EF400286AE1 /* BusStatusItem.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BusStatusItem.m; sourceTree = "<group>"; };
-		F1548CE41A7D57C300286AE1 /* BusStatusView.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = BusStatusView.xib; sourceTree = "<group>"; };
-		F1548CE61A7D643A00286AE1 /* BusStatusView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BusStatusView.h; sourceTree = "<group>"; };
-		F1548CE71A7D643A00286AE1 /* BusStatusView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BusStatusView.m; sourceTree = "<group>"; };
+		F172E1851A9A7158005381D0 /* GGSuperMenu.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = GGSuperMenu.h; path = Helpers/GGSuperMenu.h; sourceTree = "<group>"; };
+		F172E1861A9A7158005381D0 /* GGSuperMenu.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = GGSuperMenu.m; path = Helpers/GGSuperMenu.m; sourceTree = "<group>"; };
 		F17F84DC1A9A5AF200E00ABE /* GGSuperMenuView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = GGSuperMenuView.h; path = Views/GGSuperMenuView.h; sourceTree = "<group>"; };
 		F17F84DD1A9A5AF200E00ABE /* GGSuperMenuView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = GGSuperMenuView.m; path = Views/GGSuperMenuView.m; sourceTree = "<group>"; };
+		F17F84DF1A9A697200E00ABE /* BusStatusView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = BusStatusView.h; path = Views/BusStatusView.h; sourceTree = "<group>"; };
+		F17F84E01A9A697200E00ABE /* BusStatusView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = BusStatusView.m; path = Views/BusStatusView.m; sourceTree = "<group>"; };
+		F17F84E11A9A697200E00ABE /* BusStatusView.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; name = BusStatusView.xib; path = Views/BusStatusView.xib; sourceTree = "<group>"; };
+		F17F84E41A9A697A00E00ABE /* GGMapView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = GGMapView.h; path = Views/GGMapView.h; sourceTree = "<group>"; };
+		F17F84E51A9A697A00E00ABE /* GGMapView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = GGMapView.m; path = Views/GGMapView.m; sourceTree = "<group>"; };
+		F17F84E71A9A69AB00E00ABE /* SettingsStatusView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = SettingsStatusView.h; path = Views/SettingsStatusView.h; sourceTree = "<group>"; };
+		F17F84E81A9A69AB00E00ABE /* SettingsStatusView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = SettingsStatusView.m; path = Views/SettingsStatusView.m; sourceTree = "<group>"; };
+		F17F84E91A9A69AB00E00ABE /* SettingsStatusView.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; name = SettingsStatusView.xib; path = Views/SettingsStatusView.xib; sourceTree = "<group>"; };
 		F199080D1A7D267000928402 /* ggrt.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = ggrt.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		F19908111A7D267000928402 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		F19908121A7D267000928402 /* AppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
@@ -136,11 +116,9 @@
 		F10E44191A7D843E00204850 /* Bus */ = {
 			isa = PBXGroup;
 			children = (
-				F1548CE11A7D2EF400286AE1 /* BusStatusItem.h */,
-				F1548CE21A7D2EF400286AE1 /* BusStatusItem.m */,
-				F1548CE61A7D643A00286AE1 /* BusStatusView.h */,
-				F1548CE71A7D643A00286AE1 /* BusStatusView.m */,
-				F1548CE41A7D57C300286AE1 /* BusStatusView.xib */,
+				F17F84DF1A9A697200E00ABE /* BusStatusView.h */,
+				F17F84E01A9A697200E00ABE /* BusStatusView.m */,
+				F17F84E11A9A697200E00ABE /* BusStatusView.xib */,
 			);
 			name = Bus;
 			sourceTree = "<group>";
@@ -154,8 +132,8 @@
 				F10E441E1A7D847F00204850 /* PollPushManager.m */,
 				F10E44211A7D877500204850 /* NSNib+Additions.h */,
 				F10E44221A7D877500204850 /* NSNib+Additions.m */,
-				F11388201A910DB200A13A0E /* GGSuperMenu.h */,
-				F11388211A910DB200A13A0E /* GGSuperMenu.m */,
+				F172E1851A9A7158005381D0 /* GGSuperMenu.h */,
+				F172E1861A9A7158005381D0 /* GGSuperMenu.m */,
 				F17F84DC1A9A5AF200E00ABE /* GGSuperMenuView.h */,
 				F17F84DD1A9A5AF200E00ABE /* GGSuperMenuView.m */,
 			);
@@ -165,32 +143,18 @@
 		F113881C1A8FEDBC00A13A0E /* Map */ = {
 			isa = PBXGroup;
 			children = (
-				F11388191A8FEDAB00A13A0E /* GGMapView.h */,
-				F113881A1A8FEDAB00A13A0E /* GGMapView.m */,
+				F17F84E41A9A697A00E00ABE /* GGMapView.h */,
+				F17F84E51A9A697A00E00ABE /* GGMapView.m */,
 			);
 			name = Map;
-			sourceTree = "<group>";
-		};
-		F14C289C1A7DE7F500FE2937 /* Add */ = {
-			isa = PBXGroup;
-			children = (
-				F14C28941A7DE60000FE2937 /* AddMenuItem.h */,
-				F14C28951A7DE60000FE2937 /* AddMenuItem.m */,
-				F14C28971A7DE60E00FE2937 /* AddMenuView.h */,
-				F14C28981A7DE60E00FE2937 /* AddMenuView.m */,
-				F14C289A1A7DE61D00FE2937 /* AddMenuView.xib */,
-			);
-			name = Add;
 			sourceTree = "<group>";
 		};
 		F14C289D1A7DE80800FE2937 /* Settings */ = {
 			isa = PBXGroup;
 			children = (
-				F14C288E1A7DD34C00FE2937 /* SettingsStatusItem.h */,
-				F14C288F1A7DD34C00FE2937 /* SettingsStatusItem.m */,
-				F14C28911A7DD36900FE2937 /* SettingsStatusView.h */,
-				F14C28921A7DD36900FE2937 /* SettingsStatusView.m */,
-				F14C288C1A7DD2FE00FE2937 /* SettingsStatusView.xib */,
+				F17F84E71A9A69AB00E00ABE /* SettingsStatusView.h */,
+				F17F84E81A9A69AB00E00ABE /* SettingsStatusView.m */,
+				F17F84E91A9A69AB00E00ABE /* SettingsStatusView.xib */,
 			);
 			name = Settings;
 			sourceTree = "<group>";
@@ -229,12 +193,7 @@
 				F10E44201A7D848800204850 /* Helpers */,
 				F113881C1A8FEDBC00A13A0E /* Map */,
 				F10E44191A7D843E00204850 /* Bus */,
-				F14C289C1A7DE7F500FE2937 /* Add */,
 				F14C289D1A7DE80800FE2937 /* Settings */,
-				F14C289E1A7DE97700FE2937 /* SuperStatusView.h */,
-				F14C289F1A7DE97700FE2937 /* SuperStatusView.m */,
-				F14C28A41A7DF91D00FE2937 /* MyComboBox.h */,
-				F14C28A51A7DF91D00FE2937 /* MyComboBox.m */,
 				F14C28A71A7E4BB300FE2937 /* DefaultIconView.h */,
 				F14C28A81A7E4BB300FE2937 /* DefaultIconView.m */,
 				F19908101A7D267000928402 /* Supporting Files */,
@@ -351,10 +310,9 @@
 			buildActionMask = 2147483647;
 			files = (
 				F19908181A7D267000928402 /* Images.xcassets in Resources */,
-				F14C288D1A7DD2FE00FE2937 /* SettingsStatusView.xib in Resources */,
 				F199081B1A7D267000928402 /* MainMenu.xib in Resources */,
-				F1548CE51A7D57C300286AE1 /* BusStatusView.xib in Resources */,
-				F14C289B1A7DE61D00FE2937 /* AddMenuView.xib in Resources */,
+				F17F84E31A9A697200E00ABE /* BusStatusView.xib in Resources */,
+				F17F84EB1A9A69AB00E00ABE /* SettingsStatusView.xib in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -406,22 +364,16 @@
 			buildActionMask = 2147483647;
 			files = (
 				F10E44231A7D877500204850 /* NSNib+Additions.m in Sources */,
-				F14C28931A7DD36900FE2937 /* SettingsStatusView.m in Sources */,
+				F17F84EA1A9A69AB00E00ABE /* SettingsStatusView.m in Sources */,
 				F10E441C1A7D845D00204850 /* ServerHelper.m in Sources */,
+				F17F84E21A9A697200E00ABE /* BusStatusView.m in Sources */,
 				F19908161A7D267000928402 /* main.m in Sources */,
-				F14C28A61A7DF91D00FE2937 /* MyComboBox.m in Sources */,
-				F14C28961A7DE60000FE2937 /* AddMenuItem.m in Sources */,
-				F14C28A01A7DE97700FE2937 /* SuperStatusView.m in Sources */,
-				F1548CE81A7D643A00286AE1 /* BusStatusView.m in Sources */,
-				F14C28901A7DD34C00FE2937 /* SettingsStatusItem.m in Sources */,
-				F11388221A910DB200A13A0E /* GGSuperMenu.m in Sources */,
 				F14C28A91A7E4BB300FE2937 /* DefaultIconView.m in Sources */,
 				F17F84DE1A9A5AF200E00ABE /* GGSuperMenuView.m in Sources */,
 				F10E44181A7D842D00204850 /* StatusMenuController.m in Sources */,
-				F14C28991A7DE60E00FE2937 /* AddMenuView.m in Sources */,
+				F17F84E61A9A697A00E00ABE /* GGMapView.m in Sources */,
 				F10E441F1A7D847F00204850 /* PollPushManager.m in Sources */,
-				F113881B1A8FEDAB00A13A0E /* GGMapView.m in Sources */,
-				F1548CE31A7D2EF400286AE1 /* BusStatusItem.m in Sources */,
+				F172E1871A9A7158005381D0 /* GGSuperMenu.m in Sources */,
 				F19908141A7D267000928402 /* AppDelegate.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

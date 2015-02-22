@@ -9,17 +9,8 @@
 #import <Cocoa/Cocoa.h>
 #import "GGSuperMenuView.h"
 
-@class BusStatusItem;
-@class DefaultIconView;
-
 @interface BusStatusView : GGSuperMenuView
 
-@property (nonatomic) int minutesRemaining;
-
-@property (nonatomic, weak) BusStatusItem *delegate;
-@property (nonatomic) BOOL isDefault;
-
-@property (weak) IBOutlet DefaultIconView *defaultIconView;
 @property (weak) IBOutlet NSTextField *routeLabel;
 @property (weak) IBOutlet NSTextField *destinationLabel;
 @property (weak) IBOutlet NSTextField *originLabel;
@@ -28,6 +19,14 @@
 @property (weak) IBOutlet NSTextField *secondTimeRemainingLabel;
 
 // Set the info for this bus route
+// routeId
+// destinationString
+// originString
+// timeRemaing
+// secondTimeRemaining
 - (void)setDictionary:(NSDictionary *)dict;
+
+// Use for only updating the times
+- (void)setMinutesRemaining:(int)mins secondary:(int)smins;
 
 @end

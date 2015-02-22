@@ -14,7 +14,6 @@
 		stopId: 3629
 	 */
 	NSMutableArray *_busRoutes;
-	BOOL _isAdding;
 	NSInteger _defaultIndex; // -1 for none
 	int _minutes;
 }
