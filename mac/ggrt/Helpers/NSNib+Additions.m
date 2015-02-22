@@ -15,7 +15,7 @@
 	NSNib *nib = [[NSNib alloc] initWithNibNamed:NSStringFromClass(class) bundle:[NSBundle mainBundle]];
 	[nib instantiateWithOwner:nil topLevelObjects:&topLevelObjects];
 	for (id obj in topLevelObjects) {
-		if ([obj isKindOfClass:class]) {
+		if ([obj isKindOfClass:[NSView class]]) {
 			return obj;
 		}
 	}

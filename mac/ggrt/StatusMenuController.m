@@ -7,8 +7,9 @@
 //
 
 #import "StatusMenuController.h"
-#import "BusStatusItem.h"
+#import "GGSuperMenu.h"
 #import "BusStatusView.h"
+
 #import "SettingsStatusItem.h"
 #import "AddMenuItem.h"
 #import "PollPushManager.h"
@@ -31,7 +32,7 @@
 		
 		_isAdding = NO;
 		[self loadRoutes];
-		[self loadDefault];
+//		[self loadDefault];
 		[PollPushManager updateNow];
 		
 		SettingsStatusItem *settings = [[SettingsStatusItem alloc] init];
@@ -53,7 +54,7 @@
 		[[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(minutesChanged:) name:kUpdateDefaultBusMinutesLeftNotification object:nil];
 		
 		_minutes = -1;
-		[self swapTitle];
+//		[self swapTitle];
 	}
 	
 	return self;
@@ -109,8 +110,8 @@ static BOOL _route = NO;
 	}
 	
 	if (_defaultIndex >= 0) {
-		BusStatusItem *item = (BusStatusItem *)[self.theMenu itemAtIndex:_defaultIndex];
-		[(BusStatusView *)item.view setIsDefault:YES];
+//		BusStatusItem *item = (BusStatusItem *)[self.theMenu itemAtIndex:_defaultIndex];
+//		[(BusStatusView *)item.view setIsDefault:YES];
 	}
 	
 	[self minutesChanged:nil];
@@ -125,9 +126,16 @@ static BOOL _route = NO;
 		_busRoutes  = [[NSMutableArray alloc] init];
 	}
 	
+	while (_busRoutes.count > 1) {
+		[_busRoutes removeLastObject];
+	}
+	
 	[self.theMenu removeAllItems];
 	for (NSDictionary *dict in _busRoutes) {
-		BusStatusItem *item = [[BusStatusItem alloc] initWithDictionary:dict];
+//		BusStatusItem *item = [[BusStatusItem alloc] initWithDictionary:dict];
+//		BusStatusView
+		GGSuperMenu *item = [[GGSuperMenu alloc] initWithNibViewClass:[BusStatusView class]];
+		[(BusStatusView *)item.view setDictionary:dict];
 		[self.theMenu addItem:item];
 	}
 }
@@ -142,21 +150,21 @@ static BOOL _route = NO;
 
 - (void)defaultChanged:(NSNotification *)aNotif {
 	// Set previous
-	if (_defaultIndex >= 0 && _defaultIndex < _busRoutes.count) {
-		BusStatusItem *item = (BusStatusItem *)[self.theMenu itemAtIndex:_defaultIndex];
-		[(BusStatusView *)item.view setIsDefault:NO];
-	}
-	
-	BusStatusItem *item = [aNotif object];
-	if (item) {
-		[(BusStatusView *)item.view setIsDefault:YES];
-		_defaultIndex = [self.theMenu indexOfItem:item];
-	}
-	else {
-		_defaultIndex = -1;
-		[self setDefaultStatusTitle];
-	}
-	
+//	if (_defaultIndex >= 0 && _defaultIndex < _busRoutes.count) {
+//		BusStatusItem *item = (BusStatusItem *)[self.theMenu itemAtIndex:_defaultIndex];
+//		[(BusStatusView *)item.view setIsDefault:NO];
+//	}
+//	
+//	BusStatusItem *item = [aNotif object];
+//	if (item) {
+//		[(BusStatusView *)item.view setIsDefault:YES];
+//		_defaultIndex = [self.theMenu indexOfItem:item];
+//	}
+//	else {
+//		_defaultIndex = -1;
+//		[self setDefaultStatusTitle];
+//	}
+
 	[self minutesChanged:nil];
 	[self save];
 }
@@ -184,8 +192,8 @@ static BOOL _route = NO;
 	[_busRoutes addObject:dict];
 	[self save];
 	
-	BusStatusItem *item = [[BusStatusItem alloc] initWithDictionary:dict];
-	[self insertItemBelowSettings:item];
+//	BusStatusItem *item = [[BusStatusItem alloc] initWithDictionary:dict];
+//	[self insertItemBelowSettings:item];
 }
 
 - (void)deleteCell:(NSNotification *)aNotification {

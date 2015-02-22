@@ -9,7 +9,9 @@
 #import "BusStatusView.h"
 #import "DefaultIconView.h"
 
-@implementation BusStatusView
+@implementation BusStatusView {
+	NSDictionary *_dict;
+}
 
 - (void)awakeFromNib {
 	[super awakeFromNib];
@@ -18,7 +20,21 @@
 	[self addTrackingArea:area];
 }
 
+
+#pragma mark - Public methods
+
+- (void)setDictionary:(NSDictionary *)dict {
+	_dict = dict;
+
+//	NSDictionary *uiElements = @{
+//								 @"routeId": self.routeLabel,
+//								 @"stopId
+//								 };
+//	self.routeLabel.stringValue
+}
+
 - (void)mouseUp:(NSEvent *)theEvent {
+	NSLog(@"up");
 	if (self.isDefault) {
 		[[NSNotificationCenter defaultCenter] postNotificationName:kDefaultBusRouteChangedNotification object:nil];
 	}
@@ -27,16 +43,15 @@
 	}
 }
 
+
+#pragma mark - UI Interactions
+
 - (void)mouseEntered:(NSEvent *)theEvent {
-	self.deleteButton.hidden = NO;
-	
 	self.defaultIconView.hover = YES;
 	[self.defaultIconView setNeedsDisplay:YES];
 }
 
-- (void)mouseExited:(NSEvent *)theEvent {
-	self.deleteButton.hidden = YES;
-	
+- (void)mouseExited:(NSEvent *)theEvent {	
 	self.defaultIconView.hover = NO;
 	[self.defaultIconView setNeedsDisplay:YES];
 }
@@ -74,6 +89,11 @@
 	}
 }
 
+- (void)mouseDown:(NSEvent *)theEvent {
+	NSLog(@"mouse down");
+}
+
+
 #pragma mark - Override
 
 - (void)style {
@@ -82,11 +102,11 @@
 	// Style the MinutesRemaining label
 	self.minutesRemaining = _minutesRemaining;
 	
-	self.descriptionLabel.textColor = [self descriptionTextColor];
+//	self.descriptionLabel.textColor = [self descriptionTextColor];
 }
 
 - (NSColor *)timeRemainingTextColour {
-	if (self.isDarkStatusBar) {
+	if (self.isDarkAppearance) {
 		if (_minutesRemaining > 10) {
 			return COLOUR(0, 255, 0);
 		}

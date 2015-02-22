@@ -8,83 +8,70 @@
         <customObject id="-1" userLabel="First Responder" customClass="FirstResponder"/>
         <customObject id="-3" userLabel="Application" customClass="NSObject"/>
         <customView id="c22-O7-iKe" customClass="BusStatusView">
-            <rect key="frame" x="0.0" y="0.0" width="229" height="55"/>
+            <rect key="frame" x="0.0" y="0.0" width="270" height="65"/>
             <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
             <subviews>
-                <textField horizontalHuggingPriority="251" verticalHuggingPriority="750" translatesAutoresizingMaskIntoConstraints="NO" id="wfy-j5-zEv">
-                    <rect key="frame" x="18" y="13" width="164" height="17"/>
+                <customView translatesAutoresizingMaskIntoConstraints="NO" id="PEN-WL-Evp">
+                    <rect key="frame" x="0.0" y="1" width="270" height="1"/>
                     <constraints>
-                        <constraint firstAttribute="width" relation="greaterThanOrEqual" constant="160" id="hj7-xd-moR"/>
-                        <constraint firstAttribute="height" constant="17" id="nO2-3z-Nao"/>
+                        <constraint firstAttribute="height" constant="1" id="UcW-F0-HrY"/>
                     </constraints>
-                    <textFieldCell key="cell" scrollable="YES" lineBreakMode="clipping" sendsActionOnEndEditing="YES" title="Conestoga Mall Terminal" id="a9N-xC-iTL">
+                </customView>
+                <textField horizontalHuggingPriority="251" verticalHuggingPriority="750" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="hv1-ep-65k">
+                    <rect key="frame" x="18" y="8" width="129" height="17"/>
+                    <textFieldCell key="cell" scrollable="YES" lineBreakMode="clipping" sendsActionOnEndEditing="YES" title="University/Phillip" id="Y0a-Mr-Gzn">
+                        <font key="font" metaFont="cellTitle"/>
+                        <color key="textColor" name="secondaryLabelColor" catalog="System" colorSpace="catalog"/>
+                        <color key="backgroundColor" name="controlColor" catalog="System" colorSpace="catalog"/>
+                    </textFieldCell>
+                </textField>
+                <textField horizontalHuggingPriority="251" verticalHuggingPriority="750" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="Kz0-Xg-rI2">
+                    <rect key="frame" x="18" y="23" width="152" height="17"/>
+                    <textFieldCell key="cell" scrollable="YES" lineBreakMode="clipping" sendsActionOnEndEditing="YES" title="iXpress Ainslie Terminal" id="Gja-Ov-6KV">
                         <font key="font" metaFont="cellTitle"/>
                         <color key="textColor" name="labelColor" catalog="System" colorSpace="catalog"/>
                         <color key="backgroundColor" name="controlColor" catalog="System" colorSpace="catalog"/>
                     </textFieldCell>
                 </textField>
-                <textField horizontalHuggingPriority="251" verticalHuggingPriority="750" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="Gvz-6j-er7">
-                    <rect key="frame" x="18" y="28" width="38" height="18"/>
-                    <textFieldCell key="cell" scrollable="YES" lineBreakMode="clipping" sendsActionOnEndEditing="YES" title="200" id="AbR-Nq-h6s">
-                        <font key="font" metaFont="system" size="16"/>
+                <textField horizontalHuggingPriority="251" verticalHuggingPriority="750" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="kb9-A0-0DG">
+                    <rect key="frame" x="18" y="42" width="58" height="20"/>
+                    <textFieldCell key="cell" scrollable="YES" lineBreakMode="clipping" sendsActionOnEndEditing="YES" title="200" id="MFD-Ww-V62">
+                        <font key="font" metaFont="system" size="18"/>
                         <color key="textColor" name="labelColor" catalog="System" colorSpace="catalog"/>
                         <color key="backgroundColor" name="controlColor" catalog="System" colorSpace="catalog"/>
                     </textFieldCell>
                 </textField>
-                <textField horizontalHuggingPriority="251" verticalHuggingPriority="750" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="GDM-Dg-PSM">
-                    <rect key="frame" x="54" y="28" width="62" height="18"/>
-                    <textFieldCell key="cell" scrollable="YES" lineBreakMode="clipping" sendsActionOnEndEditing="YES" title="0 mins" id="ooY-6r-wHC">
-                        <font key="font" metaFont="system" size="15"/>
-                        <color key="textColor" red="1" green="0.27450980392156865" blue="0.27450980392156865" alpha="1" colorSpace="calibratedRGB"/>
-                        <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
+                <textField horizontalHuggingPriority="251" verticalHuggingPriority="750" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="oPx-jY-fog">
+                    <rect key="frame" x="193" y="36" width="59" height="17"/>
+                    <textFieldCell key="cell" scrollable="YES" lineBreakMode="clipping" sendsActionOnEndEditing="YES" alignment="right" title="5 mins" id="Mkz-wk-1B8">
+                        <font key="font" metaFont="system" size="17"/>
+                        <color key="textColor" name="labelColor" catalog="System" colorSpace="catalog"/>
+                        <color key="backgroundColor" name="controlColor" catalog="System" colorSpace="catalog"/>
                     </textFieldCell>
                 </textField>
-                <customView translatesAutoresizingMaskIntoConstraints="NO" id="PEN-WL-Evp">
-                    <rect key="frame" x="0.0" y="1" width="229" height="1"/>
-                    <constraints>
-                        <constraint firstAttribute="height" constant="1" id="UcW-F0-HrY"/>
-                    </constraints>
-                </customView>
-                <button hidden="YES" verticalHuggingPriority="750" translatesAutoresizingMaskIntoConstraints="NO" id="FQ4-Tg-LRH">
-                    <rect key="frame" x="188" y="19" width="21" height="19"/>
-                    <buttonCell key="cell" type="roundRect" title="x" bezelStyle="roundedRect" alignment="center" borderStyle="border" imageScaling="proportionallyDown" inset="2" id="UbR-4t-WEm">
-                        <behavior key="behavior" pushIn="YES" lightByBackground="YES" lightByGray="YES"/>
-                        <font key="font" metaFont="titleBar" size="12"/>
-                    </buttonCell>
-                    <connections>
-                        <action selector="deleteButtonPressed:" target="c22-O7-iKe" id="wi3-fm-6YP"/>
-                    </connections>
-                </button>
-                <customView translatesAutoresizingMaskIntoConstraints="NO" id="dcq-pi-Dwe" customClass="DefaultIconView">
-                    <rect key="frame" x="7" y="25" width="6" height="6"/>
-                    <constraints>
-                        <constraint firstAttribute="width" constant="6" id="IWx-rw-xMC"/>
-                        <constraint firstAttribute="height" constant="6" id="u7G-r6-aw4"/>
-                    </constraints>
-                </customView>
+                <textField horizontalHuggingPriority="251" verticalHuggingPriority="750" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="nHb-QU-xkW">
+                    <rect key="frame" x="193" y="16" width="59" height="17"/>
+                    <textFieldCell key="cell" scrollable="YES" lineBreakMode="clipping" sendsActionOnEndEditing="YES" alignment="right" title="15 mins" id="CKC-gW-sGR">
+                        <font key="font" metaFont="smallSystem"/>
+                        <color key="textColor" name="labelColor" catalog="System" colorSpace="catalog"/>
+                        <color key="backgroundColor" name="controlColor" catalog="System" colorSpace="catalog"/>
+                    </textFieldCell>
+                </textField>
             </subviews>
             <constraints>
-                <constraint firstAttribute="centerY" secondItem="FQ4-Tg-LRH" secondAttribute="centerY" constant="1.5" id="7ot-Uc-Y1E"/>
-                <constraint firstItem="PEN-WL-Evp" firstAttribute="top" secondItem="wfy-j5-zEv" secondAttribute="bottom" constant="11" id="CoN-MN-FNY"/>
-                <constraint firstItem="FQ4-Tg-LRH" firstAttribute="leading" secondItem="wfy-j5-zEv" secondAttribute="trailing" constant="8" id="GNH-vW-cRx"/>
-                <constraint firstItem="dcq-pi-Dwe" firstAttribute="leading" secondItem="c22-O7-iKe" secondAttribute="leading" constant="7" id="Jos-5F-IHp"/>
                 <constraint firstAttribute="bottom" secondItem="PEN-WL-Evp" secondAttribute="bottom" constant="1" id="NIQ-GJ-3T7"/>
-                <constraint firstAttribute="trailing" secondItem="FQ4-Tg-LRH" secondAttribute="trailing" constant="20" id="alo-0D-h6J"/>
-                <constraint firstAttribute="centerY" secondItem="dcq-pi-Dwe" secondAttribute="centerY" id="cS8-9k-XeS"/>
                 <constraint firstItem="PEN-WL-Evp" firstAttribute="leading" secondItem="c22-O7-iKe" secondAttribute="leading" id="jR4-WA-qVf"/>
                 <constraint firstAttribute="trailing" secondItem="PEN-WL-Evp" secondAttribute="trailing" id="mrF-Ah-pOi"/>
-                <constraint firstAttribute="trailing" secondItem="dcq-pi-Dwe" secondAttribute="trailing" constant="216" id="tMq-Cf-bp4"/>
-                <constraint firstItem="wfy-j5-zEv" firstAttribute="leading" secondItem="c22-O7-iKe" secondAttribute="leading" constant="20" id="xJg-gM-Tyr"/>
             </constraints>
             <connections>
-                <outlet property="defaultIconView" destination="dcq-pi-Dwe" id="xJI-tK-uLT"/>
-                <outlet property="deleteButton" destination="FQ4-Tg-LRH" id="Put-wJ-1GM"/>
-                <outlet property="descriptionLabel" destination="wfy-j5-zEv" id="oOy-1z-rcP"/>
-                <outlet property="routeLabel" destination="Gvz-6j-er7" id="qDq-Ek-TNX"/>
+                <outlet property="destinationLabel" destination="Kz0-Xg-rI2" id="ark-uP-bLn"/>
+                <outlet property="originLabel" destination="hv1-ep-65k" id="TWd-0E-Eur"/>
+                <outlet property="routeLabel" destination="kb9-A0-0DG" id="3aK-Xm-UoJ"/>
+                <outlet property="secondTimeRemainingLabel" destination="nHb-QU-xkW" id="0Fl-df-qyz"/>
                 <outlet property="separatorView" destination="PEN-WL-Evp" id="FAl-tb-txA"/>
-                <outlet property="timeRemainingLabel" destination="GDM-Dg-PSM" id="VJo-ym-4I0"/>
+                <outlet property="timeRemainingLabel" destination="oPx-jY-fog" id="LAi-a2-MD4"/>
             </connections>
-            <point key="canvasLocation" x="307.5" y="256.5"/>
+            <point key="canvasLocation" x="273" y="271.5"/>
         </customView>
     </objects>
 </document>

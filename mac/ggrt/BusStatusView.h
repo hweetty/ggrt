@@ -7,25 +7,27 @@
 //
 
 #import <Cocoa/Cocoa.h>
-#import "SuperStatusView.h"
+#import "GGSuperMenuView.h"
 
 @class BusStatusItem;
 @class DefaultIconView;
 
-@interface BusStatusView : SuperStatusView
+@interface BusStatusView : GGSuperMenuView
 
 @property (nonatomic) int minutesRemaining;
 
 @property (nonatomic, weak) BusStatusItem *delegate;
 @property (nonatomic) BOOL isDefault;
 
-// Do not touch below
 @property (weak) IBOutlet DefaultIconView *defaultIconView;
 @property (weak) IBOutlet NSTextField *routeLabel;
-@property (weak) IBOutlet NSTextField *descriptionLabel;
-@property (weak) IBOutlet NSTextField *timeRemainingLabel;
-@property (weak) IBOutlet NSButton *deleteButton;
+@property (weak) IBOutlet NSTextField *destinationLabel;
+@property (weak) IBOutlet NSTextField *originLabel;
 
-- (IBAction)deleteButtonPressed:(NSButton *)sender;
+@property (weak) IBOutlet NSTextField *timeRemainingLabel;
+@property (weak) IBOutlet NSTextField *secondTimeRemainingLabel;
+
+// Set the info for this bus route
+- (void)setDictionary:(NSDictionary *)dict;
 
 @end
